@@ -1,0 +1,11 @@
+{
+  "provider": "MANUAL",
+  "format": "JSON",
+  "stageNumber": 99,
+  "classCode": "TEST",
+  "status": "PROVISIONAL",
+  "entries": [
+    { "sailNumber": "POR TEST 001", "boatName": "EMBARCACAO TESTE A", "position": 1, "status": "CLASSIFIED", "raw": {} },
+    { "sailNumber": "POR TEST 002", "boatName": "EMBARCACAO TESTE B", "position": 2, "status": "CLASSIFIED", "raw": {} }
+  ]
+}

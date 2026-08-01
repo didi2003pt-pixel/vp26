@@ -1,0 +1,1346 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum UserStatus {
+  PENDING_VERIFICATION
+  ACTIVE
+  SUSPENDED
+  DELETED
+}
+
+enum CommunityType {
+  CITY
+  CLUB
+  COMPANY
+  SCHOOL
+  ORGANIZATION
+}
+
+enum MembershipStatus {
+  ACTIVE
+  PENDING
+  REJECTED
+  LEFT
+}
+
+enum BoatStatus {
+  ACTIVE
+  INACTIVE
+  PENDING_VALIDATION
+}
+
+enum BoatNameType {
+  PUBLIC
+  TECHNICAL
+  SPONSORED
+  ALIAS
+}
+
+enum IdentifierType {
+  BOAT_NUMBER
+  SAIL_NUMBER
+  REGISTRATION_ID
+  EXTERNAL_ID
+}
+
+enum CertificateType {
+  ANC
+  ORC
+}
+
+enum CertificateStatus {
+  VALID
+  EXPIRED
+  PENDING
+  REPLACED
+  PROVISIONAL
+  REJECTED
+  MISSING
+}
+
+enum StageStatus {
+  DRAFT
+  SCHEDULED
+  PREDICTIONS_OPEN
+  PREDICTIONS_CLOSED
+  IN_PROGRESS
+  PROVISIONAL_RESULTS
+  OFFICIAL_RESULTS
+  POSTPONED
+  CANCELLED
+  ARCHIVED
+}
+
+enum PredictionMarketStatus {
+  DRAFT
+  OPEN
+  CLOSED
+  CANCELLED
+  ARCHIVED
+}
+
+enum SpecialQuestionType {
+  SINGLE_CHOICE
+  TRUE_FALSE
+  EXACT_NUMBER
+  NUMERIC_RANGE
+  TIME_DIFFERENCE
+  TIME_RANGE
+}
+
+enum PredictionStatus {
+  DRAFT
+  SUBMITTED
+  LOCKED
+  VOID
+}
+
+enum ConsentType {
+  TERMS
+  PRIVACY
+  MARKETING_EMAIL
+  MARKETING_SMS
+  ANALYTICS
+}
+
+enum OutboxStatus {
+  PENDING
+  SENT
+  FAILED
+  CANCELLED
+}
+
+enum ResultImportProvider {
+  SAILTI_API
+  SAILTI_XRR
+  SAILTI_FILE
+  SAILTI_HTML
+  MANUAL
+}
+
+enum ResultImportFormat {
+  JSON
+  CSV
+  XRR_XML
+  MANUAL
+}
+
+enum ResultImportStatus {
+  DRAFT
+  PARSED
+  NEEDS_REVIEW
+  READY
+  CONFIRMED
+  REJECTED
+  FAILED
+}
+
+enum ResultImportRowStatus {
+  MATCHED
+  AMBIGUOUS
+  UNMATCHED
+  INVALID
+  IGNORED
+}
+
+enum ResultStatus {
+  PROVISIONAL
+  OFFICIAL
+  SUPERSEDED
+  REJECTED
+}
+
+enum ResultEntryStatus {
+  CLASSIFIED
+  DNF
+  DNS
+  DNC
+  DSQ
+  RET
+  OCS
+  BFD
+  UFD
+  SCP
+  RDG
+}
+
+enum CalculationRunStatus {
+  PENDING
+  RUNNING
+  COMPLETED
+  FAILED
+  SUPERSEDED
+}
+
+enum ScoreEventStatus {
+  PROVISIONAL
+  DEFINITIVE
+  VOID
+}
+
+enum RankingScope {
+  GENERAL
+  STAGE
+  CITY
+  CLUB
+  COMMUNITY
+}
+
+enum RankingStatus {
+  PROVISIONAL
+  DEFINITIVE
+  SUPERSEDED
+}
+
+
+enum MissionType {
+  CONTENT_VIEW
+  SPONSOR_QUIZ
+  QR_CODE
+  MOMENT_VOTE
+  CITY_TRIVIA
+  LIVE_STREAM
+  PHOTO_UPLOAD
+  OFFICIAL_PAGE_VISIT
+}
+
+enum MissionValidationMode {
+  AUTOMATIC
+  SIGNED_QR
+  MANUAL
+  MODERATED
+}
+
+enum MissionCompletionStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  REVOKED
+}
+
+enum PrizeStatus {
+  DRAFT
+  PUBLISHED
+  AWARDED
+  DELIVERED
+  CANCELLED
+}
+
+enum NotificationChannel {
+  IN_APP
+  EMAIL
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+  READ
+  FAILED
+  CANCELLED
+}
+
+enum SocialCardFormat {
+  SQUARE
+  STORY
+}
+
+enum SocialDraftStatus {
+  DRAFT
+  APPROVED
+  EXPORTED
+  ARCHIVED
+}
+
+
+enum DataSubjectRequestType {
+  ACCESS
+  RECTIFICATION
+  ERASURE
+  RESTRICTION
+  PORTABILITY
+  OBJECTION
+}
+
+enum DataSubjectRequestStatus {
+  RECEIVED
+  IDENTITY_VERIFICATION
+  IN_PROGRESS
+  COMPLETED
+  REJECTED
+  CANCELLED
+}
+
+enum SecurityEventSeverity {
+  INFO
+  WARNING
+  CRITICAL
+}
+
+enum RetentionRunStatus {
+  RUNNING
+  COMPLETED
+  FAILED
+}
+
+enum BackupRunStatus {
+  STARTED
+  COMPLETED
+  VERIFIED
+  FAILED
+}
+
+model User {
+  id                  String    @id @default(uuid()) @db.Uuid
+  email               String    @unique @db.VarChar(254)
+  passwordHash        String?   @map("password_hash")
+  status              UserStatus @default(PENDING_VERIFICATION)
+  emailVerifiedAt     DateTime? @map("email_verified_at") @db.Timestamptz(6)
+  failedLoginCount    Int       @default(0) @map("failed_login_count")
+  lockedUntil         DateTime? @map("locked_until") @db.Timestamptz(6)
+  lastLoginAt         DateTime? @map("last_login_at") @db.Timestamptz(6)
+  createdAt           DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt           DateTime? @map("deleted_at") @db.Timestamptz(6)
+  profile             Profile?
+  roles               UserRole[]
+  sessions            Session[]
+  verificationTokens  EmailVerificationToken[]
+  passwordResetTokens PasswordResetToken[]
+  consents            Consent[]
+  memberships         CommunityMembership[]
+  predictions         Prediction[]
+  predictionRevisions PredictionRevision[] @relation("PredictionRevisionActor")
+  scoreEvents         ScoreEvent[]
+  stageScores         UserStageScore[]
+  totalScores         UserTotalScore[]
+  auditLogs           AuditLog[] @relation("AuditActor")
+  missionCompletions  MissionCompletion[]
+  notifications       Notification[]
+  prizeAwards         PrizeAward[]
+  dataSubjectRequests DataSubjectRequest[] @relation("DataSubjectRequestOwner")
+  handledDataSubjectRequests DataSubjectRequest[] @relation("DataSubjectRequestHandler")
+  securityEvents      SecurityEvent[] @relation("SecurityEventActor")
+
+  @@map("users")
+}
+
+model Profile {
+  id          String  @id @default(uuid()) @db.Uuid
+  userId      String  @unique @map("user_id") @db.Uuid
+  name        String  @db.VarChar(120)
+  nickname    String  @unique @db.VarChar(40)
+  countryCode String  @default("PT") @map("country_code") @db.Char(2)
+  cityId      String? @map("city_id") @db.Uuid
+  clubId      String? @map("club_id") @db.Uuid
+  avatarKey   String? @map("avatar_key") @db.VarChar(500)
+  phone       String? @db.VarChar(40)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+  user        User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  city        City?   @relation(fields: [cityId], references: [id], onDelete: SetNull)
+  club        Club?   @relation(fields: [clubId], references: [id], onDelete: SetNull)
+
+  @@index([cityId])
+  @@index([clubId])
+  @@map("profiles")
+}
+
+model Role {
+  id          String     @id @default(uuid()) @db.Uuid
+  code        String     @unique @db.VarChar(50)
+  name        String     @db.VarChar(100)
+  description String?    @db.VarChar(500)
+  userRoles   UserRole[]
+  createdAt   DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@map("roles")
+}
+
+model UserRole {
+  userId     String   @map("user_id") @db.Uuid
+  roleId     String   @map("role_id") @db.Uuid
+  assignedAt DateTime @default(now()) @map("assigned_at") @db.Timestamptz(6)
+  assignedBy String?  @map("assigned_by") @db.Uuid
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role       Role     @relation(fields: [roleId], references: [id], onDelete: Cascade)
+
+  @@id([userId, roleId])
+  @@index([roleId])
+  @@map("user_roles")
+}
+
+model Session {
+  id           String    @id @default(uuid()) @db.Uuid
+  userId       String    @map("user_id") @db.Uuid
+  tokenHash    String    @unique @map("token_hash") @db.Char(64)
+  expiresAt    DateTime  @map("expires_at") @db.Timestamptz(6)
+  lastSeenAt   DateTime  @default(now()) @map("last_seen_at") @db.Timestamptz(6)
+  ipAddress    String?   @map("ip_address") @db.Inet
+  ipHash       String?   @map("ip_hash") @db.Char(64)
+  requestId    String?   @map("request_id") @db.VarChar(128)
+  userAgent    String?   @map("user_agent") @db.VarChar(500)
+  revokedAt    DateTime? @map("revoked_at") @db.Timestamptz(6)
+  createdAt    DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  user         User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("sessions")
+}
+
+model EmailVerificationToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  tokenHash String    @unique @map("token_hash") @db.Char(64)
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz(6)
+  usedAt    DateTime? @map("used_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("email_verification_tokens")
+}
+
+model PasswordResetToken {
+  id        String    @id @default(uuid()) @db.Uuid
+  userId    String    @map("user_id") @db.Uuid
+  tokenHash String    @unique @map("token_hash") @db.Char(64)
+  expiresAt DateTime  @map("expires_at") @db.Timestamptz(6)
+  usedAt    DateTime? @map("used_at") @db.Timestamptz(6)
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  user      User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@map("password_reset_tokens")
+}
+
+model Consent {
+  id        String      @id @default(uuid()) @db.Uuid
+  userId    String      @map("user_id") @db.Uuid
+  type      ConsentType
+  version   String      @db.VarChar(50)
+  granted   Boolean
+  ipAddress String?     @map("ip_address") @db.Inet
+  ipHash    String?     @map("ip_hash") @db.Char(64)
+  requestId String?     @map("request_id") @db.VarChar(128)
+  userAgent String?     @map("user_agent") @db.VarChar(500)
+  createdAt DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  user      User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, type])
+  @@map("consents")
+}
+
+model City {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String    @db.VarChar(100)
+  slug      String    @unique @db.VarChar(120)
+  countryCode String  @default("PT") @map("country_code") @db.Char(2)
+  active    Boolean   @default(true)
+  profiles  Profile[]
+  clubs     Club[]
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([name, countryCode])
+  @@map("cities")
+}
+
+model Club {
+  id        String    @id @default(uuid()) @db.Uuid
+  name      String    @db.VarChar(180)
+  slug      String    @unique @db.VarChar(200)
+  cityId    String?   @map("city_id") @db.Uuid
+  active    Boolean   @default(true)
+  city      City?     @relation(fields: [cityId], references: [id], onDelete: SetNull)
+  profiles  Profile[]
+  createdAt DateTime  @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime  @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([cityId])
+  @@map("clubs")
+}
+
+model Community {
+  id          String                @id @default(uuid()) @db.Uuid
+  type        CommunityType
+  name        String                @db.VarChar(180)
+  slug        String                @unique @db.VarChar(200)
+  active      Boolean               @default(true)
+  memberships CommunityMembership[]
+  createdAt   DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([type])
+  @@map("communities")
+}
+
+model CommunityMembership {
+  id          String           @id @default(uuid()) @db.Uuid
+  userId      String           @map("user_id") @db.Uuid
+  communityId String           @map("community_id") @db.Uuid
+  status      MembershipStatus @default(ACTIVE)
+  joinedAt    DateTime         @default(now()) @map("joined_at") @db.Timestamptz(6)
+  leftAt      DateTime?        @map("left_at") @db.Timestamptz(6)
+  user        User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  community   Community        @relation(fields: [communityId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, communityId])
+  @@index([communityId, status])
+  @@map("community_memberships")
+}
+
+model RaceClass {
+  id        String      @id @default(uuid()) @db.Uuid
+  code      String      @unique @db.VarChar(30)
+  name      String      @db.VarChar(100)
+  parentId  String?     @map("parent_id") @db.Uuid
+  active    Boolean     @default(true)
+  parent    RaceClass?  @relation("ClassHierarchy", fields: [parentId], references: [id], onDelete: SetNull)
+  children  RaceClass[] @relation("ClassHierarchy")
+  boats     Boat[]
+  stageClasses StageClass[]
+  predictionMarkets PredictionMarket[]
+  resultImports ResultImport[]
+  stageResults StageResult[]
+  scoringRuleSets ScoringRuleSet[]
+  totalScores UserTotalScore[]
+  rankingSnapshots RankingSnapshot[]
+  createdAt DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([parentId])
+  @@map("race_classes")
+}
+
+model Boat {
+  id                 String      @id @default(uuid()) @db.Uuid
+  registrationId     String      @unique @map("registration_id") @db.VarChar(20)
+  boatNumber         String      @unique @map("boat_number") @db.VarChar(20)
+  publicName         String      @map("public_name") @db.VarChar(180)
+  technicalName      String?     @map("technical_name") @db.VarChar(180)
+  classId            String      @map("class_id") @db.Uuid
+  status             BoatStatus  @default(ACTIVE)
+  sourceAuditVersion String      @map("source_audit_version") @db.VarChar(20)
+  class              RaceClass   @relation(fields: [classId], references: [id], onDelete: Restrict)
+  names              BoatName[]
+  identifiers        BoatIdentifier[]
+  certificates       BoatCertificate[]
+  externalIdentifiers BoatExternalIdentifier[]
+  stageBoats         StageBoat[]
+  predictionPodiums  PredictionPodium[]
+  surprisePredictions Prediction[] @relation("PredictionSurpriseBoat")
+  importRows         ResultImportRow[]
+  resultEntries      StageResultEntry[]
+  createdAt          DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+  deletedAt          DateTime?   @map("deleted_at") @db.Timestamptz(6)
+
+  @@index([classId, status])
+  @@map("boats")
+}
+
+model BoatName {
+  id        String       @id @default(uuid()) @db.Uuid
+  boatId    String       @map("boat_id") @db.Uuid
+  type      BoatNameType
+  name      String       @db.VarChar(180)
+  validFrom DateTime?    @map("valid_from") @db.Date
+  validUntil DateTime?   @map("valid_until") @db.Date
+  isCurrent Boolean      @default(true) @map("is_current")
+  source    String       @db.VarChar(200)
+  boat      Boat         @relation(fields: [boatId], references: [id], onDelete: Cascade)
+  createdAt DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([boatId, type, name])
+  @@index([name])
+  @@map("boat_names")
+}
+
+model BoatIdentifier {
+  id        String         @id @default(uuid()) @db.Uuid
+  boatId    String         @map("boat_id") @db.Uuid
+  type      IdentifierType
+  value     String         @db.VarChar(100)
+  normalizedValue String   @map("normalized_value") @db.VarChar(100)
+  countryCode String?      @map("country_code") @db.VarChar(10)
+  suffix    String?        @db.VarChar(20)
+  isCurrent Boolean        @default(true) @map("is_current")
+  source    String         @db.VarChar(200)
+  boat      Boat           @relation(fields: [boatId], references: [id], onDelete: Cascade)
+  createdAt DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([type, normalizedValue])
+  @@index([boatId, type, isCurrent])
+  @@map("boat_identifiers")
+}
+
+model BoatCertificate {
+  id                   String            @id @default(uuid()) @db.Uuid
+  boatId               String            @map("boat_id") @db.Uuid
+  type                 CertificateType
+  reference            String?           @db.VarChar(100)
+  model                 String?           @db.VarChar(180)
+  ratingType            String?           @map("rating_type") @db.VarChar(50)
+  ratingValue           Decimal?          @map("rating_value") @db.Decimal(12, 6)
+  issuedAt              DateTime?          @map("issued_at") @db.Date
+  validUntil            DateTime?          @map("valid_until") @db.Date
+  status                CertificateStatus
+  sourceFiles           Json              @map("source_files")
+  sourceHashes          Json              @map("source_hashes")
+  isCurrent             Boolean           @default(true) @map("is_current")
+  notes                 String?           @db.Text
+  boat                  Boat              @relation(fields: [boatId], references: [id], onDelete: Cascade)
+  createdAt             DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt             DateTime          @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([boatId, type, isCurrent])
+  @@map("boat_certificates")
+}
+
+model BoatExternalIdentifier {
+  id          String   @id @default(uuid()) @db.Uuid
+  boatId      String   @map("boat_id") @db.Uuid
+  provider    String   @db.VarChar(50)
+  externalId  String   @map("external_id") @db.VarChar(200)
+  externalName String? @map("external_name") @db.VarChar(180)
+  verifiedAt  DateTime? @map("verified_at") @db.Timestamptz(6)
+  boat        Boat     @relation(fields: [boatId], references: [id], onDelete: Cascade)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([provider, externalId])
+  @@index([boatId])
+  @@map("boat_external_identifiers")
+}
+
+model Stage {
+  id                  String      @id @default(uuid()) @db.Uuid
+  number              Int         @unique
+  slug                String      @unique @db.VarChar(150)
+  name                String      @db.VarChar(200)
+  raceType            String      @map("race_type") @db.VarChar(100)
+  startLocation       String?     @map("start_location") @db.VarChar(150)
+  finishLocation      String?     @map("finish_location") @db.VarChar(150)
+  stageDate           DateTime    @map("stage_date") @db.Date
+  predictionsOpenAt   DateTime?   @map("predictions_open_at") @db.Timestamptz(6)
+  predictionsCloseAt  DateTime?   @map("predictions_close_at") @db.Timestamptz(6)
+  scheduledStartAt    DateTime?   @map("scheduled_start_at") @db.Timestamptz(6)
+  status              StageStatus @default(DRAFT)
+  imageKey            String?     @map("image_key") @db.VarChar(500)
+  sponsorId           String?     @map("sponsor_id") @db.Uuid
+  sponsor             Sponsor?    @relation(fields: [sponsorId], references: [id], onDelete: SetNull)
+  stageClasses        StageClass[]
+  stageBoats          StageBoat[]
+  predictionMarkets   PredictionMarket[]
+  resultImports        ResultImport[]
+  results              StageResult[]
+  rankingSnapshots     RankingSnapshot[]
+  createdAt           DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt           DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([stageDate, status])
+  @@map("stages")
+}
+
+model StageClass {
+  stageId String    @map("stage_id") @db.Uuid
+  classId String    @map("class_id") @db.Uuid
+  active  Boolean   @default(true)
+  stage   Stage     @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  class   RaceClass @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  @@id([stageId, classId])
+  @@index([classId])
+  @@map("stage_classes")
+}
+
+model StageBoat {
+  id                 String   @id @default(uuid()) @db.Uuid
+  stageId            String   @map("stage_id") @db.Uuid
+  boatId             String   @map("boat_id") @db.Uuid
+  eligibleForPrediction Boolean @default(true) @map("eligible_for_prediction")
+  surpriseEligible   Boolean  @default(false) @map("surprise_eligible")
+  participationSource String  @map("participation_source") @db.VarChar(200)
+  stage               Stage   @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  boat                Boat    @relation(fields: [boatId], references: [id], onDelete: Cascade)
+  createdAt           DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([stageId, boatId])
+  @@index([boatId])
+  @@map("stage_boats")
+}
+
+model PredictionMarket {
+  id                     String                 @id @default(uuid()) @db.Uuid
+  stageId                String                 @map("stage_id") @db.Uuid
+  classId                String                 @map("class_id") @db.Uuid
+  code                   String                 @unique @db.VarChar(180)
+  status                 PredictionMarketStatus @default(DRAFT)
+  opensAt                DateTime?              @map("opens_at") @db.Timestamptz(6)
+  closesAt               DateTime?              @map("closes_at") @db.Timestamptz(6)
+  allowSurpriseInPodium  Boolean                @default(false) @map("allow_surprise_in_podium")
+  maxPodiumPosition      Int                    @default(3) @map("max_podium_position")
+  scoringRuleSetId       String?                @map("scoring_rule_set_id") @db.Uuid
+  stage                  Stage                  @relation(fields: [stageId], references: [id], onDelete: Cascade)
+  class                  RaceClass              @relation(fields: [classId], references: [id], onDelete: Restrict)
+  scoringRuleSet         ScoringRuleSet?         @relation(fields: [scoringRuleSetId], references: [id], onDelete: SetNull)
+  specialQuestion        SpecialQuestion?
+  predictions            Prediction[]
+  userScores              UserStageScore[]
+  scoreEvents             ScoreEvent[]
+  createdAt              DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt              DateTime               @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([stageId, classId])
+  @@index([status, opensAt, closesAt])
+  @@index([classId])
+  @@index([scoringRuleSetId])
+  @@map("prediction_markets")
+}
+
+model SpecialQuestion {
+  id            String              @id @default(uuid()) @db.Uuid
+  marketId      String              @unique @map("market_id") @db.Uuid
+  type          SpecialQuestionType
+  prompt        String              @db.VarChar(500)
+  helpText      String?             @map("help_text") @db.VarChar(500)
+  points        Int                 @default(50)
+  active        Boolean             @default(false)
+  correctAnswer Json?               @map("correct_answer")
+  tolerance     Json?
+  market        PredictionMarket    @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  options       SpecialQuestionOption[]
+  createdAt     DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime            @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("special_questions")
+}
+
+model SpecialQuestionOption {
+  id         String          @id @default(uuid()) @db.Uuid
+  questionId String          @map("question_id") @db.Uuid
+  value      String          @db.VarChar(100)
+  label      String          @db.VarChar(200)
+  sortOrder  Int             @default(0) @map("sort_order")
+  active     Boolean         @default(true)
+  question   SpecialQuestion @relation(fields: [questionId], references: [id], onDelete: Cascade)
+  createdAt  DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([questionId, value])
+  @@index([questionId, sortOrder])
+  @@map("special_question_options")
+}
+
+model Prediction {
+  id              String           @id @default(uuid()) @db.Uuid
+  userId          String           @map("user_id") @db.Uuid
+  marketId        String           @map("market_id") @db.Uuid
+  status          PredictionStatus @default(DRAFT)
+  surpriseBoatId  String?          @map("surprise_boat_id") @db.Uuid
+  specialAnswer   Json?            @map("special_answer")
+  submittedAt     DateTime?        @map("submitted_at") @db.Timestamptz(6)
+  lockedAt        DateTime?        @map("locked_at") @db.Timestamptz(6)
+  createdAt       DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime         @updatedAt @map("updated_at") @db.Timestamptz(6)
+  user            User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  market          PredictionMarket @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  surpriseBoat    Boat?            @relation("PredictionSurpriseBoat", fields: [surpriseBoatId], references: [id], onDelete: Restrict)
+  podium          PredictionPodium[]
+  revisions       PredictionRevision[]
+  scoreEvents    ScoreEvent[]
+
+  @@unique([userId, marketId])
+  @@index([marketId, status, submittedAt])
+  @@index([surpriseBoatId])
+  @@map("predictions")
+}
+
+model PredictionPodium {
+  predictionId String     @map("prediction_id") @db.Uuid
+  position     Int
+  boatId       String     @map("boat_id") @db.Uuid
+  prediction   Prediction @relation(fields: [predictionId], references: [id], onDelete: Cascade)
+  boat         Boat       @relation(fields: [boatId], references: [id], onDelete: Restrict)
+  createdAt    DateTime   @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@id([predictionId, position])
+  @@unique([predictionId, boatId])
+  @@index([boatId])
+  @@map("prediction_podium")
+}
+
+model PredictionRevision {
+  id             String      @id @default(uuid()) @db.Uuid
+  predictionId   String      @map("prediction_id") @db.Uuid
+  actorUserId    String?     @map("actor_user_id") @db.Uuid
+  reason         String      @db.VarChar(100)
+  beforeSnapshot Json?       @map("before_snapshot")
+  afterSnapshot  Json        @map("after_snapshot")
+  createdAt      DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  prediction     Prediction  @relation(fields: [predictionId], references: [id], onDelete: Cascade)
+  actor          User?       @relation("PredictionRevisionActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([predictionId, createdAt])
+  @@index([actorUserId])
+  @@map("prediction_revisions")
+}
+
+
+model ResultImport {
+  id             String                 @id @default(uuid()) @db.Uuid
+  provider       ResultImportProvider
+  format         ResultImportFormat
+  status         ResultImportStatus     @default(DRAFT)
+  stageId        String                 @map("stage_id") @db.Uuid
+  classId        String                 @map("class_id") @db.Uuid
+  sourceName     String                 @map("source_name") @db.VarChar(300)
+  sourceUrl      String?                @map("source_url") @db.VarChar(1000)
+  sourceHash     String                 @map("source_hash") @db.Char(64)
+  sourceSize     Int                    @map("source_size")
+  rawPayload     String                 @map("raw_payload") @db.Text
+  parsedPayload  Json?                  @map("parsed_payload")
+  parserVersion  String                 @map("parser_version") @db.VarChar(50)
+  uploadedById   String?                @map("uploaded_by_id") @db.Uuid
+  confirmedById  String?                @map("confirmed_by_id") @db.Uuid
+  confirmedAt    DateTime?              @map("confirmed_at") @db.Timestamptz(6)
+  failureReason  String?                @map("failure_reason") @db.Text
+  stage          Stage                  @relation(fields: [stageId], references: [id], onDelete: Restrict)
+  class          RaceClass              @relation(fields: [classId], references: [id], onDelete: Restrict)
+  rows           ResultImportRow[]
+  result         StageResult?
+  createdAt      DateTime               @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime               @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([provider, sourceHash, stageId, classId])
+  @@index([status, createdAt])
+  @@index([stageId, classId])
+  @@map("result_imports")
+}
+
+model ResultImportRow {
+  id              String                @id @default(uuid()) @db.Uuid
+  importId        String                @map("import_id") @db.Uuid
+  rowNumber       Int                   @map("row_number")
+  status          ResultImportRowStatus
+  raw             Json
+  normalized      Json?
+  boatId          String?               @map("boat_id") @db.Uuid
+  matchConfidence Decimal?              @map("match_confidence") @db.Decimal(5, 4)
+  matchReason     String?               @map("match_reason") @db.VarChar(500)
+  errors          Json?
+  import          ResultImport          @relation(fields: [importId], references: [id], onDelete: Cascade)
+  boat            Boat?                 @relation(fields: [boatId], references: [id], onDelete: SetNull)
+  createdAt       DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt       DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([importId, rowNumber])
+  @@index([importId, status])
+  @@index([boatId])
+  @@map("result_import_rows")
+}
+
+model StageResult {
+  id             String          @id @default(uuid()) @db.Uuid
+  stageId        String          @map("stage_id") @db.Uuid
+  classId        String          @map("class_id") @db.Uuid
+  importId       String?         @unique @map("import_id") @db.Uuid
+  version        Int
+  status         ResultStatus
+  isCurrent      Boolean         @default(true) @map("is_current")
+  publishedAt    DateTime?       @map("published_at") @db.Timestamptz(6)
+  confirmedAt    DateTime?       @map("confirmed_at") @db.Timestamptz(6)
+  confirmedById  String?         @map("confirmed_by_id") @db.Uuid
+  sourceHash     String?         @map("source_hash") @db.Char(64)
+  specialAnswer  Json?           @map("special_answer")
+  notes          String?         @db.Text
+  stage          Stage           @relation(fields: [stageId], references: [id], onDelete: Restrict)
+  class          RaceClass       @relation(fields: [classId], references: [id], onDelete: Restrict)
+  import         ResultImport?   @relation(fields: [importId], references: [id], onDelete: SetNull)
+  entries        StageResultEntry[]
+  calculationRuns CalculationRun[]
+  userScores     UserStageScore[]
+  createdAt      DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt      DateTime        @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([stageId, classId, version])
+  @@index([stageId, classId, isCurrent, status])
+  @@map("stage_results")
+}
+
+model StageResultEntry {
+  id               String            @id @default(uuid()) @db.Uuid
+  resultId         String            @map("result_id") @db.Uuid
+  boatId           String            @map("boat_id") @db.Uuid
+  position         Int?
+  status           ResultEntryStatus @default(CLASSIFIED)
+  elapsedSeconds   Int?              @map("elapsed_seconds")
+  correctedSeconds Int?              @map("corrected_seconds")
+  penaltyCode      String?           @map("penalty_code") @db.VarChar(50)
+  externalEntryId  String?           @map("external_entry_id") @db.VarChar(200)
+  notes            String?           @db.Text
+  raw              Json?
+  result           StageResult       @relation(fields: [resultId], references: [id], onDelete: Cascade)
+  boat             Boat              @relation(fields: [boatId], references: [id], onDelete: Restrict)
+  createdAt        DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([resultId, boatId])
+  @@index([resultId, status, position])
+  @@index([boatId])
+  @@map("stage_result_entries")
+}
+
+model ScoringRuleSet {
+  id          String        @id @default(uuid()) @db.Uuid
+  classId     String?       @map("class_id") @db.Uuid
+  code        String        @db.VarChar(100)
+  version     Int
+  name        String        @db.VarChar(180)
+  active      Boolean       @default(false)
+  validFrom   DateTime?     @map("valid_from") @db.Timestamptz(6)
+  validUntil  DateTime?     @map("valid_until") @db.Timestamptz(6)
+  class       RaceClass?    @relation(fields: [classId], references: [id], onDelete: SetNull)
+  rules       ScoringRule[]
+  calculationRuns CalculationRun[]
+  markets     PredictionMarket[]
+  createdAt   DateTime      @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime      @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@unique([code, version])
+  @@index([classId, active])
+  @@map("scoring_rule_sets")
+}
+
+model ScoringRule {
+  id          String         @id @default(uuid()) @db.Uuid
+  ruleSetId   String         @map("rule_set_id") @db.Uuid
+  code        String         @db.VarChar(100)
+  points      Int
+  active      Boolean        @default(true)
+  config      Json?
+  ruleSet     ScoringRuleSet @relation(fields: [ruleSetId], references: [id], onDelete: Cascade)
+  createdAt   DateTime       @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([ruleSetId, code])
+  @@map("scoring_rules")
+}
+
+model CalculationRun {
+  id           String               @id @default(uuid()) @db.Uuid
+  resultId     String               @map("result_id") @db.Uuid
+  ruleSetId    String               @map("rule_set_id") @db.Uuid
+  runNumber    Int                  @map("run_number")
+  status       CalculationRunStatus @default(PENDING)
+  isCurrent    Boolean              @default(false) @map("is_current")
+  startedAt    DateTime?            @map("started_at") @db.Timestamptz(6)
+  finishedAt   DateTime?            @map("finished_at") @db.Timestamptz(6)
+  triggeredById String?             @map("triggered_by_id") @db.Uuid
+  error        String?              @db.Text
+  summary      Json?
+  result       StageResult          @relation(fields: [resultId], references: [id], onDelete: Restrict)
+  ruleSet      ScoringRuleSet       @relation(fields: [ruleSetId], references: [id], onDelete: Restrict)
+  scoreEvents  ScoreEvent[]
+  userStageScores UserStageScore[]
+  rankingSnapshots RankingSnapshot[]
+  createdAt    DateTime             @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([resultId, runNumber])
+  @@index([status, createdAt])
+  @@index([resultId, isCurrent])
+  @@map("calculation_runs")
+}
+
+model ScoreEvent {
+  id               String           @id @default(uuid()) @db.Uuid
+  calculationRunId String           @map("calculation_run_id") @db.Uuid
+  userId           String           @map("user_id") @db.Uuid
+  predictionId     String           @map("prediction_id") @db.Uuid
+  marketId         String           @map("market_id") @db.Uuid
+  ruleCode         String           @map("rule_code") @db.VarChar(100)
+  subjectKey       String           @map("subject_key") @db.VarChar(200)
+  points           Int
+  explanation      String           @db.VarChar(1000)
+  status           ScoreEventStatus
+  metadata         Json?
+  calculationRun   CalculationRun   @relation(fields: [calculationRunId], references: [id], onDelete: Cascade)
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  prediction       Prediction       @relation(fields: [predictionId], references: [id], onDelete: Cascade)
+  market           PredictionMarket @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  createdAt        DateTime         @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([calculationRunId, predictionId, ruleCode, subjectKey])
+  @@index([userId, marketId])
+  @@index([calculationRunId, userId])
+  @@map("score_events")
+}
+
+model UserStageScore {
+  id               String           @id @default(uuid()) @db.Uuid
+  userId           String           @map("user_id") @db.Uuid
+  marketId         String           @map("market_id") @db.Uuid
+  resultId         String           @map("result_id") @db.Uuid
+  calculationRunId String           @map("calculation_run_id") @db.Uuid
+  points           Int
+  breakdown        Json
+  status           ScoreEventStatus
+  calculatedAt     DateTime         @map("calculated_at") @db.Timestamptz(6)
+  predictionSubmittedAt DateTime?   @map("prediction_submitted_at") @db.Timestamptz(6)
+  user             User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  market           PredictionMarket @relation(fields: [marketId], references: [id], onDelete: Cascade)
+  result           StageResult      @relation(fields: [resultId], references: [id], onDelete: Restrict)
+  calculationRun   CalculationRun   @relation(fields: [calculationRunId], references: [id], onDelete: Restrict)
+
+  @@unique([userId, marketId])
+  @@index([marketId, points])
+  @@index([userId, calculatedAt])
+  @@map("user_stage_scores")
+}
+
+model UserTotalScore {
+  id                    String    @id @default(uuid()) @db.Uuid
+  userId                String    @map("user_id") @db.Uuid
+  classId               String    @map("class_id") @db.Uuid
+  points                Int       @default(0)
+  stageCount            Int       @default(0) @map("stage_count")
+  winnerExactCount      Int       @default(0) @map("winner_exact_count")
+  exactPodiumCount      Int       @default(0) @map("exact_podium_count")
+  surpriseCorrectCount  Int       @default(0) @map("surprise_correct_count")
+  specialCorrectCount   Int       @default(0) @map("special_correct_count")
+  numericErrorTotal     Decimal   @default(0) @map("numeric_error_total") @db.Decimal(18, 4)
+  participationBonusCount Int     @default(0) @map("participation_bonus_count")
+  lastPredictionSubmittedAt DateTime? @map("last_prediction_submitted_at") @db.Timestamptz(6)
+  lastCalculatedAt      DateTime  @map("last_calculated_at") @db.Timestamptz(6)
+  user                  User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  class                 RaceClass @relation(fields: [classId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, classId])
+  @@index([classId, points])
+  @@map("user_total_scores")
+}
+
+model RankingSnapshot {
+  id               String          @id @default(uuid()) @db.Uuid
+  scope            RankingScope
+  status           RankingStatus
+  stageId          String?         @map("stage_id") @db.Uuid
+  classId          String          @map("class_id") @db.Uuid
+  scopeRefId       String?         @map("scope_ref_id") @db.VarChar(200)
+  scopeRefLabel    String?         @map("scope_ref_label") @db.VarChar(200)
+  calculationRunId String?         @map("calculation_run_id") @db.Uuid
+  methodology      String          @db.VarChar(300)
+  generatedAt      DateTime        @map("generated_at") @db.Timestamptz(6)
+  stage            Stage?          @relation(fields: [stageId], references: [id], onDelete: SetNull)
+  class            RaceClass       @relation(fields: [classId], references: [id], onDelete: Cascade)
+  calculationRun   CalculationRun? @relation(fields: [calculationRunId], references: [id], onDelete: SetNull)
+  entries          RankingSnapshotEntry[]
+  createdAt        DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([scope, classId, generatedAt])
+  @@index([stageId, classId])
+  @@map("ranking_snapshots")
+}
+
+model RankingSnapshotEntry {
+  id           String          @id @default(uuid()) @db.Uuid
+  snapshotId   String          @map("snapshot_id") @db.Uuid
+  rank         Int
+  subjectId    String          @map("subject_id") @db.VarChar(200)
+  displayName  String          @map("display_name") @db.VarChar(200)
+  points       Decimal         @db.Decimal(18, 4)
+  rawPoints    Int             @map("raw_points")
+  participants Int             @default(1)
+  metrics      Json?
+  snapshot     RankingSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+  createdAt    DateTime        @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@unique([snapshotId, rank])
+  @@unique([snapshotId, subjectId])
+  @@index([snapshotId, points])
+  @@map("ranking_snapshot_entries")
+}
+
+model Sponsor {
+  id        String   @id @default(uuid()) @db.Uuid
+  name      String   @db.VarChar(180)
+  slug      String   @unique @db.VarChar(200)
+  website   String?  @db.VarChar(500)
+  logoKey   String?  @map("logo_key") @db.VarChar(500)
+  active    Boolean  @default(true)
+  stages    Stage[]
+  missions  Mission[]
+  prizes    Prize[]
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("sponsors")
+}
+
+
+model Mission {
+  id                     String                @id @default(uuid()) @db.Uuid
+  stageId                String?               @map("stage_id") @db.Uuid
+  sponsorId              String?               @map("sponsor_id") @db.Uuid
+  type                    MissionType
+  validationMode          MissionValidationMode @map("validation_mode")
+  title                   String                @db.VarChar(180)
+  slug                    String                @unique @db.VarChar(220)
+  description             String                @db.Text
+  instructions            String?               @db.Text
+  imageKey                 String?               @map("image_key") @db.VarChar(500)
+  points                   Int
+  startsAt                 DateTime              @map("starts_at") @db.Timestamptz(6)
+  endsAt                   DateTime              @map("ends_at") @db.Timestamptz(6)
+  dailyLimit               Int?                  @map("daily_limit")
+  totalLimit               Int?                  @map("total_limit")
+  active                   Boolean               @default(false)
+  configuration            Json?
+  stage                    Stage?                @relation(fields: [stageId], references: [id], onDelete: SetNull)
+  sponsor                  Sponsor?              @relation(fields: [sponsorId], references: [id], onDelete: SetNull)
+  completions              MissionCompletion[]
+  createdAt                DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt                DateTime              @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([active, startsAt, endsAt])
+  @@index([stageId])
+  @@map("missions")
+}
+
+model MissionCompletion {
+  id              String                  @id @default(uuid()) @db.Uuid
+  missionId       String                  @map("mission_id") @db.Uuid
+  userId          String                  @map("user_id") @db.Uuid
+  status          MissionCompletionStatus @default(PENDING)
+  evidence        Json?
+  pointsAwarded   Int                     @default(0) @map("points_awarded")
+  completedAt     DateTime                @default(now()) @map("completed_at") @db.Timestamptz(6)
+  reviewedAt      DateTime?               @map("reviewed_at") @db.Timestamptz(6)
+  reviewedBy      String?                 @map("reviewed_by") @db.Uuid
+  rejectionReason String?                 @map("rejection_reason") @db.VarChar(500)
+  mission         Mission                 @relation(fields: [missionId], references: [id], onDelete: Cascade)
+  user            User                    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([missionId, userId])
+  @@index([status, completedAt])
+  @@map("mission_completions")
+}
+
+model Prize {
+  id                  String      @id @default(uuid()) @db.Uuid
+  sponsorId           String?     @map("sponsor_id") @db.Uuid
+  title               String      @db.VarChar(180)
+  slug                String      @unique @db.VarChar(220)
+  description         String      @db.Text
+  imageKey            String?     @map("image_key") @db.VarChar(500)
+  status              PrizeStatus @default(DRAFT)
+  rankingScope        RankingScope? @map("ranking_scope")
+  classCode           String?     @map("class_code") @db.VarChar(30)
+  quantity            Int         @default(1)
+  eligibility         Json?
+  regulations         String?     @db.Text
+  awardAt              DateTime?   @map("award_at") @db.Timestamptz(6)
+  sponsor              Sponsor?    @relation(fields: [sponsorId], references: [id], onDelete: SetNull)
+  awards               PrizeAward[]
+  createdAt            DateTime    @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt            DateTime    @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([status, awardAt])
+  @@map("prizes")
+}
+
+model PrizeAward {
+  id           String    @id @default(uuid()) @db.Uuid
+  prizeId      String    @map("prize_id") @db.Uuid
+  userId       String    @map("user_id") @db.Uuid
+  rankingRef   String?   @map("ranking_ref") @db.VarChar(250)
+  awardedAt    DateTime  @default(now()) @map("awarded_at") @db.Timestamptz(6)
+  deliveredAt  DateTime? @map("delivered_at") @db.Timestamptz(6)
+  deliveryNote String?   @map("delivery_note") @db.VarChar(500)
+  prize        Prize     @relation(fields: [prizeId], references: [id], onDelete: Cascade)
+  user         User      @relation(fields: [userId], references: [id], onDelete: Restrict)
+
+  @@unique([prizeId, userId])
+  @@map("prize_awards")
+}
+
+model Notification {
+  id          String              @id @default(uuid()) @db.Uuid
+  userId      String              @map("user_id") @db.Uuid
+  channel     NotificationChannel
+  type        String              @db.VarChar(100)
+  title       String              @db.VarChar(180)
+  body        String              @db.Text
+  payload     Json?
+  status      NotificationStatus  @default(PENDING)
+  scheduledAt DateTime?           @map("scheduled_at") @db.Timestamptz(6)
+  sentAt      DateTime?           @map("sent_at") @db.Timestamptz(6)
+  readAt      DateTime?           @map("read_at") @db.Timestamptz(6)
+  user        User                @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt   DateTime            @default(now()) @map("created_at") @db.Timestamptz(6)
+
+  @@index([userId, status, createdAt])
+  @@map("notifications")
+}
+
+model SocialContentDraft {
+  id            String            @id @default(uuid()) @db.Uuid
+  stageId       String?           @map("stage_id") @db.Uuid
+  format        SocialCardFormat
+  status        SocialDraftStatus @default(DRAFT)
+  headline      String            @db.VarChar(180)
+  body          String            @db.Text
+  statistics    Json
+  templateKey   String            @map("template_key") @db.VarChar(100)
+  assetKey      String?           @map("asset_key") @db.VarChar(500)
+  approvedBy    String?           @map("approved_by") @db.Uuid
+  approvedAt    DateTime?         @map("approved_at") @db.Timestamptz(6)
+  createdAt     DateTime          @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt     DateTime          @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([stageId, status])
+  @@map("social_content_drafts")
+}
+
+model AuditLog {
+  id          String   @id @default(uuid()) @db.Uuid
+  actorUserId String?  @map("actor_user_id") @db.Uuid
+  action      String   @db.VarChar(100)
+  entityType  String   @map("entity_type") @db.VarChar(100)
+  entityId    String?  @map("entity_id") @db.VarChar(200)
+  before      Json?
+  after       Json?
+  metadata    Json?
+  ipAddress   String?  @map("ip_address") @db.Inet
+  ipHash      String?  @map("ip_hash") @db.Char(64)
+  requestId   String?  @map("request_id") @db.VarChar(128)
+  userAgent   String?  @map("user_agent") @db.VarChar(500)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  actor       User?    @relation("AuditActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId])
+  @@index([actorUserId, createdAt])
+  @@map("audit_logs")
+}
+
+
+model DataSubjectRequest {
+  id                 String                   @id @default(uuid()) @db.Uuid
+  userId             String?                  @map("user_id") @db.Uuid
+  requesterEmail     String                   @map("requester_email") @db.VarChar(254)
+  type               DataSubjectRequestType
+  status             DataSubjectRequestStatus @default(RECEIVED)
+  receivedAt         DateTime                 @default(now()) @map("received_at") @db.Timestamptz(6)
+  dueAt              DateTime                 @map("due_at") @db.Timestamptz(6)
+  identityVerifiedAt DateTime?                @map("identity_verified_at") @db.Timestamptz(6)
+  completedAt        DateTime?                @map("completed_at") @db.Timestamptz(6)
+  handledById        String?                  @map("handled_by_id") @db.Uuid
+  decision           String?                  @db.VarChar(100)
+  responseSummary    String?                  @map("response_summary") @db.Text
+  internalNotes      String?                  @map("internal_notes") @db.Text
+  metadata           Json?
+  user               User?                    @relation("DataSubjectRequestOwner", fields: [userId], references: [id], onDelete: SetNull)
+  handledBy          User?                    @relation("DataSubjectRequestHandler", fields: [handledById], references: [id], onDelete: SetNull)
+  createdAt          DateTime                 @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt          DateTime                 @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([userId, status])
+  @@index([status, dueAt])
+  @@index([requesterEmail, receivedAt])
+  @@map("data_subject_requests")
+}
+
+model SecurityEvent {
+  id          String                @id @default(uuid()) @db.Uuid
+  severity    SecurityEventSeverity @default(INFO)
+  eventType   String                @map("event_type") @db.VarChar(100)
+  actorUserId String?               @map("actor_user_id") @db.Uuid
+  requestId   String?               @map("request_id") @db.VarChar(128)
+  ipHash      String?               @map("ip_hash") @db.Char(64)
+  route       String?               @db.VarChar(500)
+  method      String?               @db.VarChar(12)
+  metadata    Json?
+  createdAt   DateTime              @default(now()) @map("created_at") @db.Timestamptz(6)
+  actor       User?                 @relation("SecurityEventActor", fields: [actorUserId], references: [id], onDelete: SetNull)
+
+  @@index([severity, createdAt])
+  @@index([eventType, createdAt])
+  @@index([actorUserId, createdAt])
+  @@index([requestId])
+  @@map("security_events")
+}
+
+model RetentionRun {
+  id          String             @id @default(uuid()) @db.Uuid
+  status      RetentionRunStatus @default(RUNNING)
+  policy      Json
+  summary     Json?
+  error       String?            @db.Text
+  startedAt   DateTime           @default(now()) @map("started_at") @db.Timestamptz(6)
+  finishedAt  DateTime?          @map("finished_at") @db.Timestamptz(6)
+
+  @@index([status, startedAt])
+  @@map("retention_runs")
+}
+
+model BackupRun {
+  id          String          @id @default(uuid()) @db.Uuid
+  status      BackupRunStatus @default(STARTED)
+  backupType  String          @map("backup_type") @db.VarChar(50)
+  storageKey  String?         @map("storage_key") @db.VarChar(1000)
+  sha256      String?         @db.Char(64)
+  encrypted   Boolean         @default(false)
+  sizeBytes   BigInt?         @map("size_bytes")
+  metadata    Json?
+  error       String?         @db.Text
+  startedAt   DateTime        @default(now()) @map("started_at") @db.Timestamptz(6)
+  finishedAt  DateTime?       @map("finished_at") @db.Timestamptz(6)
+
+  @@index([status, startedAt])
+  @@map("backup_runs")
+}
+
+model FeatureFlag {
+  id          String   @id @default(uuid()) @db.Uuid
+  key         String   @unique @db.VarChar(100)
+  enabled     Boolean  @default(false)
+  description String?  @db.VarChar(500)
+  rules       Json?
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("feature_flags")
+}
+
+model SystemSetting {
+  id          String   @id @default(uuid()) @db.Uuid
+  key         String   @unique @db.VarChar(100)
+  value       Json
+  description String?  @db.VarChar(500)
+  createdAt   DateTime @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@map("system_settings")
+}
+
+model EmailOutbox {
+  id          String       @id @default(uuid()) @db.Uuid
+  template    String       @db.VarChar(100)
+  recipient   String       @db.VarChar(254)
+  subject     String       @db.VarChar(300)
+  payload     Json
+  status      OutboxStatus @default(PENDING)
+  attempts    Int          @default(0)
+  lastError   String?      @map("last_error") @db.Text
+  sentAt      DateTime?    @map("sent_at") @db.Timestamptz(6)
+  createdAt   DateTime     @default(now()) @map("created_at") @db.Timestamptz(6)
+  updatedAt   DateTime     @updatedAt @map("updated_at") @db.Timestamptz(6)
+
+  @@index([status, createdAt])
+  @@map("email_outbox")
+}

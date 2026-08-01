@@ -1,0 +1,74 @@
+[
+  {
+    "number": 1,
+    "slug": "etapa-01-gaia-frente-atlantica",
+    "name": "Gaia / Frente Atlântica",
+    "raceType": "Costeira",
+    "startLocation": "Gaia / Frente Atlântica",
+    "finishLocation": null,
+    "stageDate": "2026-07-25"
+  },
+  {
+    "number": 2,
+    "slug": "etapa-02-gaia-figueira-da-foz",
+    "name": "Gaia / Frente Atlântica → Figueira da Foz",
+    "raceType": "Costeira",
+    "startLocation": "Gaia / Frente Atlântica",
+    "finishLocation": "Figueira da Foz",
+    "stageDate": "2026-07-26"
+  },
+  {
+    "number": 3,
+    "slug": "etapa-03-in-port-figueira-da-foz",
+    "name": "Regata In-Port Figueira da Foz",
+    "raceType": "In-Port",
+    "startLocation": "Figueira da Foz",
+    "finishLocation": "Figueira da Foz",
+    "stageDate": "2026-07-27"
+  },
+  {
+    "number": 4,
+    "slug": "etapa-04-figueira-da-foz-cascais",
+    "name": "Figueira da Foz → Cascais",
+    "raceType": "Costeira",
+    "startLocation": "Figueira da Foz",
+    "finishLocation": "Cascais",
+    "stageDate": "2026-07-28"
+  },
+  {
+    "number": 5,
+    "slug": "etapa-05-in-port-lisboa",
+    "name": "Regata In-Port Lisboa",
+    "raceType": "In-Port",
+    "startLocation": "Lisboa",
+    "finishLocation": "Lisboa",
+    "stageDate": "2026-07-29"
+  },
+  {
+    "number": 6,
+    "slug": "etapa-06-cascais-sines",
+    "name": "Cascais → Sines",
+    "raceType": "Costeira",
+    "startLocation": "Cascais",
+    "finishLocation": "Sines",
+    "stageDate": "2026-07-30"
+  },
+  {
+    "number": 7,
+    "slug": "etapa-07-sines-portimao",
+    "name": "Sines → Portimão",
+    "raceType": "Costeira",
+    "startLocation": "Sines",
+    "finishLocation": "Portimão",
+    "stageDate": "2026-07-31"
+  },
+  {
+    "number": 8,
+    "slug": "etapa-08-costeira-portimao",
+    "name": "Regata Costeira Portimão",
+    "raceType": "Costeira",
+    "startLocation": "Portimão",
+    "finishLocation": "Portimão",
+    "stageDate": "2026-08-01"
+  }
+]

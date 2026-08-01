@@ -1,0 +1,1 @@
+import { assertMissionBudget, socialCopy, verifySignedQr } from "../packages/engagement/src/index"; assertMissionBudget(60,400); if(!verifySignedQr("mission:2000","mission",1000)) throw new Error("QR failed"); console.log(socialCopy({stage:"Etapa 6",winnerShare:92,perfectPodiums:18,cityLeader:"Portimão"}));

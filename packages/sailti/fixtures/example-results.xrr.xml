@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<RegattaResults>
+  <Race>
+    <CompetitorResult>
+      <CompetitorID>TEST-001</CompetitorID>
+      <SailNumber>POR TEST 001</SailNumber>
+      <BoatName>EMBARCACAO TESTE A</BoatName>
+      <Rank>1</Rank>
+      <RaceStatus>CLASSIFIED</RaceStatus>
+      <ElapsedTime>02:31:10</ElapsedTime>
+      <CorrectedTime>02:20:00</CorrectedTime>
+    </CompetitorResult>
+    <CompetitorResult>
+      <CompetitorID>TEST-002</CompetitorID>
+      <SailNumber>POR TEST 002</SailNumber>
+      <BoatName>EMBARCACAO TESTE B</BoatName>
+      <RaceStatus>DNF</RaceStatus>
+    </CompetitorResult>
+  </Race>
+</RegattaResults>

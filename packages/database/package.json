@@ -1,0 +1,38 @@
+{
+  "name": "@desafio/database",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts",
+    "./client": "./src/client.ts"
+  },
+  "dependencies": {
+    "@node-rs/argon2": "^2.0.0",
+    "@prisma/adapter-pg": "^7.4.2",
+    "@prisma/client": "^7.4.2",
+    "pg": "^8.16.0",
+    "@desafio/scoring": "0.5.0",
+    "@desafio/sailti": "0.5.0",
+    "@desafio/operations": "0.5.0"
+  },
+  "devDependencies": {
+    "@types/pg": "^8.15.0",
+    "dotenv": "^17.0.0",
+    "prisma": "^7.4.2",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3"
+  },
+  "scripts": {
+    "db:generate": "prisma --config prisma.config.ts generate",
+    "db:migrate": "prisma --config prisma.config.ts migrate dev",
+    "db:deploy": "prisma --config prisma.config.ts migrate deploy",
+    "db:seed": "tsx prisma/seed.ts",
+    "db:studio": "prisma --config prisma.config.ts studio",
+    "typecheck": "tsc -p tsconfig.json",
+    "markets:close": "tsx src/maintenance/close-expired-markets.ts",
+    "results:recalculate": "tsx src/results/recalculate-pending.ts",
+    "privacy:retention": "tsx src/privacy/run-retention.ts",
+    "privacy:anonymize": "tsx src/privacy/anonymize-request.ts"
+  }
+}

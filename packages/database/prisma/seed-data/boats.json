@@ -1,0 +1,1473 @@
+[
+  {
+    "registrationId": "E22",
+    "boatNumber": "10",
+    "publicName": "Allaboard49",
+    "technicalName": "ALLABOARD49",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Allaboard49",
+      "ALLABOARD49"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "49",
+      "suffix": null,
+      "display": "POR 49",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "ALLABOARD49-POR_49 (2)(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "f86434bcc8875b134fb63a884ba0ab806f9b4397ec5b8a6f2a367751f2f9f7d2"
+      ],
+      "reference": null,
+      "model": "Jeanneau Sun Odyssey 49 Performance",
+      "rating_type": "ANC",
+      "rating_value": "1.117",
+      "issued_at": "2026-07-24",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "registration_sail_4900_vs_certificate_POR_49"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E04",
+    "boatNumber": "6",
+    "publicName": "Anthea",
+    "technicalName": "ANTHEA",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Anthea",
+      "ANTHEA"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8551",
+      "suffix": null,
+      "display": "POR 8551",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "ANTHEA-POR_8551(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "e5478ac454d945e1daeaef1c9a25b11ed9233d1a6e97bb0efc32b2fe6fb08c24"
+      ],
+      "reference": null,
+      "model": "Arcona 410",
+      "rating_type": "ANC",
+      "rating_value": "1.060",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E35",
+    "boatNumber": "20",
+    "publicName": "Azul XL",
+    "technicalName": "AZUL XL",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Azul XL",
+      "AZUL XL"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8022",
+      "suffix": null,
+      "display": "POR 8022",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "Certificado ANC AZUL_XL-POR_8022(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "1a4b489463c8dcc1930b5223aedac50c9a4812a5b94712426ec3c550686bf7d2"
+      ],
+      "reference": null,
+      "model": "Elan 40",
+      "rating_type": "ANC",
+      "rating_value": "1.050",
+      "issued_at": "2026-03-20",
+      "valid_until": "2026-03-31",
+      "status": "expired"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "registration_sail_1_vs_certificate_POR_8022",
+      "certificate_expired_before_event"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E19",
+    "boatNumber": "31",
+    "publicName": "BALAYA",
+    "technicalName": "BALAYA",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "BALAYA",
+      "Balaya"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8108",
+      "suffix": null,
+      "display": "POR 8108",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "BALAYA-POR_8108 0,997(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "030e72d2cf5f272caeafcb53b7c2f5c6e234d62f7d8cf332f347b826ccd430dc"
+      ],
+      "reference": null,
+      "model": "Jeanneau Sun Kiss 47",
+      "rating_type": "ANC",
+      "rating_value": "0.997",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E33",
+    "boatNumber": "1",
+    "publicName": "BIÃO II",
+    "technicalName": "BIÃO II",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "BIÃO II",
+      "Bião II"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "4444",
+      "suffix": null,
+      "display": "POR 4444",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "bião II(4).pdf"
+      ],
+      "source_format": "pdf_page_images",
+      "source_sha256": [
+        "76d0963fb9fbd72cf37da875779cedaea1e9bb02a2855c9e24040da881c17a6f"
+      ],
+      "reference": "03530004C1C",
+      "model": "FIRST 40.7",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.1304",
+      "issued_at": "2026-02-19",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E27",
+    "boatNumber": "2",
+    "publicName": "BLU",
+    "technicalName": "BLU",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "BLU"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "3300",
+      "suffix": null,
+      "display": "POR 3300",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "BLU-POR_3300(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "5086d3e6d863cb1ea2a2b5c85fc23d7fed63dd09020a13d02cc06782671c0259"
+      ],
+      "reference": null,
+      "model": "Grand Soleil 40 C",
+      "rating_type": "ANC",
+      "rating_value": "1.032",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E46",
+    "boatNumber": "29",
+    "publicName": "Farofino",
+    "technicalName": "FAROFINO",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "Farofino",
+      "FAROFINO"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "2000",
+      "suffix": null,
+      "display": "POR 2000",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "Screenshot_20260723_233203_Chrome(1).jpg",
+        "Screenshot_20260723_233303_Chrome(1).jpg",
+        "Screenshot_20260723_233322_Chrome(1).jpg"
+      ],
+      "source_format": "image_set_no_pdf",
+      "source_sha256": [
+        "da80d88145141c52cd2d112a7e7f633022d9f994ef0a1f6ab1065e7d5e35e55a",
+        "177b03dfd5c94098d3beaf62989670bc0b529b4ab9b4a8e4fe3663a392300282",
+        "f1e63aedfb64faea0c7ffd1d6a162a47c5dd7527dc762f19bf966e82713014d3"
+      ],
+      "reference": "03530004U0S",
+      "model": "MUMM 30",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.0945",
+      "issued_at": "2026-07-03",
+      "valid_until": "2027-01-31",
+      "status": "valid_evidence_but_pdf_missing"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": false,
+      "stage_3": false,
+      "stage_4": false,
+      "stage_5": false,
+      "stage_6": false,
+      "stage_7": false,
+      "stage_8": true
+    },
+    "conflicts": [
+      "certificate_available_only_as_screenshots"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E29",
+    "boatNumber": "30",
+    "publicName": "Feitiço",
+    "technicalName": "FEITICO",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "Feitiço",
+      "FEITIÇO",
+      "FEITICO"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "406",
+      "suffix": null,
+      "display": "POR 406",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "ORC Certificate for FEITICO(4).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "5a4f54a09f24c8a61ad3cfaf00c6776caa3acb1e43d6dd1e2e5ba7fbd76ae51f"
+      ],
+      "reference": "03530004VJT",
+      "model": "PROTOTIPO 3/4 TON",
+      "rating_type": "APH_ToT",
+      "rating_value": "0.9973",
+      "issued_at": "2026-07-22",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "registration_control_notes_livrete_and_insurance_pending"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E30",
+    "boatNumber": "17",
+    "publicName": "First Way",
+    "technicalName": "FIRST WAY",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "First Way",
+      "FIRST WAY"
+    ],
+    "sail": {
+      "country_code": "NOR",
+      "number": "13592",
+      "suffix": null,
+      "display": "NOR 13592",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "2026_Abono FIRST_WAY-NOR_13592(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "a037b3979f071e1dc3404c4fe42845bdd76cee571ca9dcb34e629a0efa9dadb0"
+      ],
+      "reference": null,
+      "model": "Bénéteau First Class 10",
+      "rating_type": "ANC",
+      "rating_value": "1.017",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": false,
+      "stage_5": false,
+      "stage_6": false,
+      "stage_7": false,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E38",
+    "boatNumber": "18",
+    "publicName": "Foz do Ave",
+    "technicalName": "FOZ DO AVE",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Foz do Ave",
+      "FOZ DO AVE"
+    ],
+    "sail": {
+      "country_code": "FRA",
+      "number": "15008",
+      "suffix": null,
+      "display": "FRA 15008",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "Certificado ANC_FOZ_DO_AVE-FRA_15008(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "eed590b19dd6b646f604fe334e034010819e47acd9f031c1e270acae9703bbfe"
+      ],
+      "reference": null,
+      "model": "Jeanneau JOD 35",
+      "rating_type": "ANC",
+      "rating_value": "1.027",
+      "issued_at": "2026-06-05",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E18",
+    "boatNumber": "14",
+    "publicName": "FUNBEL-NACEX",
+    "technicalName": "FUNBEL",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "FUNBEL-NACEX",
+      "FUNBEL"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "4508",
+      "suffix": null,
+      "display": "POR 4508",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "FUNBEL-POR_4508(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "e1d49b30d7ca4a296f8fea70399721edf611f44e77ea6fe0d88657bf01a450da"
+      ],
+      "reference": null,
+      "model": "Bénéteau First 45",
+      "rating_type": "ANC",
+      "rating_value": "1.116",
+      "issued_at": "2026-04-18",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "public_name_FUNBEL_NACEX_vs_certificate_FUNBEL"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E43",
+    "boatNumber": "32",
+    "publicName": "GRAOULLY",
+    "technicalName": "GRAOULLY",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "GRAOULLY"
+    ],
+    "sail": {
+      "country_code": null,
+      "number": "25678",
+      "suffix": null,
+      "display": "25678",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "GRAOULLY-25678(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "e23b300d2c21764795308ac4ed0a8ae0be4981faceea8e46aa5468290aa0e924"
+      ],
+      "reference": null,
+      "model": "Dufour 385",
+      "rating_type": "ANC",
+      "rating_value": "0.970",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": false,
+      "stage_2": false,
+      "stage_3": false,
+      "stage_4": false,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "certificate_has_no_country_prefix"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E01",
+    "boatNumber": "35",
+    "publicName": "Häcker Kitchen",
+    "technicalName": "MADMAX",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Häcker Kitchen",
+      "HÄCKER KITCHEN",
+      "MADMAX"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8137",
+      "suffix": null,
+      "display": "POR 8137",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "Certificado medição ANC_MADMAX-POR_8137(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "e38b6aa3cfaae4aa1cd5f88b7e3f379ce3dee1fedcbf5987752ea76d70f43a60"
+      ],
+      "reference": null,
+      "model": "Shipman 50",
+      "rating_type": "ANC",
+      "rating_value": "1.187",
+      "issued_at": "2026-07-17",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "public_name_Hacker_Kitchen_vs_certificate_MADMAX"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E13",
+    "boatNumber": "11",
+    "publicName": "IBERO'S",
+    "technicalName": null,
+    "classCode": "ANC",
+    "classRoot": "ANC",
+    "aliases": [
+      "IBERO'S"
+    ],
+    "sail": {
+      "country_code": null,
+      "number": null,
+      "suffix": null,
+      "display": null,
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [],
+      "source_format": null,
+      "source_sha256": [],
+      "reference": null,
+      "model": null,
+      "rating_type": null,
+      "rating_value": null,
+      "issued_at": null,
+      "valid_until": null,
+      "status": "missing"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "certificate_missing",
+      "registration_control_says_certificate_requested"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E23",
+    "boatNumber": "33",
+    "publicName": "Jotocassy",
+    "technicalName": "JOTOCASSY",
+    "classCode": "ANC-B",
+    "classRoot": "ANC",
+    "aliases": [
+      "Jotocassy",
+      "JOTOCASSY"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "25696",
+      "suffix": null,
+      "display": "POR 25696",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "JOTOCASSY-POR_25696(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "6e109568dffc32ce6d21522f2a01e307bdde4d4a6ab63b49da3ff120f88e75a0"
+      ],
+      "reference": null,
+      "model": "Bénéteau First 35",
+      "rating_type": "ANC",
+      "rating_value": "0.950",
+      "issued_at": "2026-06-05",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E39",
+    "boatNumber": "28",
+    "publicName": "KAMBA",
+    "technicalName": "KAMBA",
+    "classCode": "ANC-B",
+    "classRoot": "ANC",
+    "aliases": [
+      "KAMBA"
+    ],
+    "sail": {
+      "country_code": "B",
+      "number": "37",
+      "suffix": null,
+      "display": "B 37",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "KAMBA-B_37 (1)(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "12d2d327ee13277091d71e90428cf773cbad467dbb7616de3e29888f9335e666"
+      ],
+      "reference": null,
+      "model": "Bavaria 37 Cruiser",
+      "rating_type": "ANC",
+      "rating_value": "0.966",
+      "issued_at": "2026-07-24",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E15",
+    "boatNumber": "8",
+    "publicName": "Knot Work",
+    "technicalName": "KNOT WORK",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Knot Work",
+      "KNOT WORK"
+    ],
+    "sail": {
+      "country_code": "GBR",
+      "number": "6634",
+      "suffix": "R",
+      "display": "GBR 6634 R",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "Abono 30-05-26(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "14c001f0032f0724f5a53eca77ce10af3bb828150c021e2edba987ed55311025"
+      ],
+      "reference": null,
+      "model": "Elan 340",
+      "rating_type": "ANC",
+      "rating_value": "0.979",
+      "issued_at": "2026-05-30",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E36",
+    "boatNumber": "15",
+    "publicName": "MADRAÇO",
+    "technicalName": "MADRAÇO",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "MADRAÇO",
+      "Madraço"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8301",
+      "suffix": null,
+      "display": "POR 8301",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "Safari(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "322bf9b5f71cee9d9ebb195044f8bd005a3b0175f9daa1924678e420df71b863"
+      ],
+      "reference": null,
+      "model": "Bénéteau First 36.7",
+      "rating_type": "ANC",
+      "rating_value": "0.996",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E06",
+    "boatNumber": "9",
+    "publicName": "MAKAI",
+    "technicalName": "MAKAI",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "MAKAI",
+      "Makai"
+    ],
+    "sail": {
+      "country_code": "NED",
+      "number": "89",
+      "suffix": null,
+      "display": "NED 89",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "ORC Certificate for MAKAI(4).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "956104f5a73061e5f47617103f2e1dddf75186f8362a311b2c80f429a0804fd2"
+      ],
+      "reference": "03530004UOQ",
+      "model": "M34",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.1881",
+      "issued_at": "2026-07-03",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "certificate_data_file_NED69C_differs_from_header_NED89_review_as_technical_identifier"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E25",
+    "boatNumber": "22",
+    "publicName": "Mar de Levante",
+    "technicalName": "MAR DE LEVANTE",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Mar de Levante",
+      "MAR DE LEVANTE"
+    ],
+    "sail": {
+      "country_code": "DEN",
+      "number": "5034",
+      "suffix": null,
+      "display": "DEN 5034",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "MAR_DE_LEVANTE-DEN_5034(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "532c8bb27e9cfbc3095c5de280c7f58d7b06b7bf5d85bc3ad80680d7ad61d008"
+      ],
+      "reference": null,
+      "model": "Grand Soleil 40 R",
+      "rating_type": "ANC",
+      "rating_value": "1.057",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E10",
+    "boatNumber": "13",
+    "publicName": "Mar Me Quer",
+    "technicalName": "MAR ME QUER",
+    "classCode": "ANC-B",
+    "classRoot": "ANC",
+    "aliases": [
+      "Mar Me Quer",
+      "MAR ME QUER"
+    ],
+    "sail": {
+      "country_code": null,
+      "number": "25698",
+      "suffix": null,
+      "display": "25698",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "Abono ANC - MAR_ME_QUER-25698(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "b0401bfcd9f24eb1d7dd7dbbae5969ee09f83378cc26a422b299c3aafa38af39"
+      ],
+      "reference": null,
+      "model": "Dufour 360 GL",
+      "rating_type": "ANC",
+      "rating_value": "0.919",
+      "issued_at": "2026-06-05",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": false
+    },
+    "conflicts": [
+      "certificate_has_no_country_prefix"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E14",
+    "boatNumber": "5",
+    "publicName": "MAR MEU",
+    "technicalName": "MAR MEU",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "MAR MEU",
+      "Mar Meu"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "2018",
+      "suffix": null,
+      "display": "POR 2018",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "MAR MEU - ORC(4).pdf"
+      ],
+      "source_format": "pdf_page_images",
+      "source_sha256": [
+        "d536daf01cf93d17a56e5dd81e7efe6d01b1cbcd12a68adee586e0cfd5e27027"
+      ],
+      "reference": "03530004UOO",
+      "model": "POGO 30",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.1167",
+      "issued_at": "2026-07-03",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E24",
+    "boatNumber": "25",
+    "publicName": "Papa Léguas II",
+    "technicalName": "PAPA LEGUAS II",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "Papa Léguas II",
+      "PAPA LEGUAS II"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "1312",
+      "suffix": null,
+      "display": "POR 1312",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "ORC Certificate for PAPA LEGUAS II (1)(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "4925690216315f0b37014c9ab64782af01e7df060adf1fefe42cdbddebab9122"
+      ],
+      "reference": "03530004I62",
+      "model": "SIGMA 38",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.0580",
+      "issued_at": "2026-03-18",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E17",
+    "boatNumber": "12",
+    "publicName": "PEDE MAR/guronsan",
+    "technicalName": "PEDE MAR",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "PEDE MAR/guronsan",
+      "PEDE MAR/GURONSAN",
+      "PEDE MAR"
+    ],
+    "sail": {
+      "country_code": "GBR",
+      "number": "1234",
+      "suffix": "X",
+      "display": "GBR 1234 X",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "PEDE_MAR-GBR_1234_X(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "b8dd2f1484dc7fa60257cba9dd1daf89b1813df4af114dddd2c05198117eea1c"
+      ],
+      "reference": null,
+      "model": "Grand Soleil 43",
+      "rating_type": "ANC",
+      "rating_value": "1.097",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "public_sponsored_name_vs_certificate_PEDE_MAR"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E34",
+    "boatNumber": "24",
+    "publicName": "Playtime",
+    "technicalName": "PLAYTIME",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Playtime",
+      "PLAYTIME"
+    ],
+    "sail": {
+      "country_code": "ITA",
+      "number": "15446",
+      "suffix": null,
+      "display": "ITA 15446",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "PLAYTIME-ITA_15446_260721_224259(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "dae97b6b621adf96b4ea4450547629e4469ae833097a2b65f456612ac40c0177"
+      ],
+      "reference": null,
+      "model": "X Yachts 46",
+      "rating_type": "ANC",
+      "rating_value": "1.174",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E28",
+    "boatNumber": "3",
+    "publicName": "Pocket Rocket",
+    "technicalName": "POCKET ROCKET",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "Pocket Rocket",
+      "POCKET ROCKET"
+    ],
+    "sail": {
+      "country_code": "GBR",
+      "number": "7777",
+      "suffix": null,
+      "display": "GBR 7777",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "ORC Certificate for POCKET ROCKET(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "61e5a8b8525b1383a9d2dde0643e780bbe235f9ece6a997e32c696e13c5ed79e"
+      ],
+      "reference": "03530004VLP",
+      "model": "J/109",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.1121",
+      "issued_at": "2026-07-24",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "historical_result_documents_contain_other_identifier_but_are_excluded"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E12",
+    "boatNumber": "4",
+    "publicName": "SENSIA",
+    "technicalName": "SENSIA",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "SENSIA",
+      "Sensia"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8138",
+      "suffix": null,
+      "display": "POR 8138",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "RatingSENSIA-POR_8138-3(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "be94eff117ae34b02726a6fc16371453ad496479acc1f0e30f366fa74b95e9d4"
+      ],
+      "reference": null,
+      "model": "Dufour 34",
+      "rating_type": "ANC",
+      "rating_value": "0.983",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E26",
+    "boatNumber": "7",
+    "publicName": "Sete Estrelo",
+    "technicalName": "SETE ESTRELO",
+    "classCode": "ANC-A",
+    "classRoot": "ANC",
+    "aliases": [
+      "Sete Estrelo",
+      "SETE ESTRELO"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "1435",
+      "suffix": null,
+      "display": "POR 1435",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "PDF(1).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "350a5a4a9c58d5d13f634a04bc8f642d29920b41fa12b7a39055633e2da90143"
+      ],
+      "reference": null,
+      "model": "Bénéteau First 33.7",
+      "rating_type": "ANC",
+      "rating_value": "0.975",
+      "issued_at": "2026-04-10",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "generic_source_filename_PDF_1_should_be_renamed"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E44",
+    "boatNumber": "34",
+    "publicName": "Veritas",
+    "technicalName": "VERITAS",
+    "classCode": "ANC-B",
+    "classRoot": "ANC",
+    "aliases": [
+      "Veritas",
+      "VERITAS"
+    ],
+    "sail": {
+      "country_code": "ESP",
+      "number": "9161",
+      "suffix": null,
+      "display": "ESP 9161",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ANC",
+      "source_files": [
+        "VERITAS-ESP_9161 Abono ANC 2026(3).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "3d3c0e56afd3eb9a39c67b9d438e47749c187691e62ad020826ddf8e9a445f36"
+      ],
+      "reference": null,
+      "model": "Dehler 34",
+      "rating_type": "ANC",
+      "rating_value": "0.949",
+      "issued_at": "2026-06-27",
+      "valid_until": "2027-03-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": true
+    },
+    "conflicts": [
+      "registration_sail_7112_vs_certificate_ESP_9161"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  },
+  {
+    "registrationId": "E11",
+    "boatNumber": "27",
+    "publicName": "YEMAYA",
+    "technicalName": "YEMAYA",
+    "classCode": "ORC",
+    "classRoot": "ORC",
+    "aliases": [
+      "YEMAYA",
+      "Yemaya"
+    ],
+    "sail": {
+      "country_code": "POR",
+      "number": "8556",
+      "suffix": null,
+      "display": "POR 8556",
+      "source_policy": "latest supplied ANC/ORC certificate PDF"
+    },
+    "certificate": {
+      "type": "ORC",
+      "source_files": [
+        "ORC Certificate for YEMAYA 2026(2).pdf"
+      ],
+      "source_format": "pdf",
+      "source_sha256": [
+        "002b49b0af970b856fe045f16a999a7451e037bc14822f774737194f99ba6265"
+      ],
+      "reference": "03530004VJQ",
+      "model": "FIRST 40.7",
+      "rating_type": "APH_ToT",
+      "rating_value": "1.1307",
+      "issued_at": "2026-07-22",
+      "valid_until": "2027-01-31",
+      "status": "valid"
+    },
+    "participation": {
+      "stage_1": true,
+      "stage_2": true,
+      "stage_3": true,
+      "stage_4": true,
+      "stage_5": true,
+      "stage_6": true,
+      "stage_7": true,
+      "stage_8": false
+    },
+    "conflicts": [
+      "registration_sail_8558_vs_certificate_POR_8556"
+    ],
+    "sourceAuditVersion": "1.2.0"
+  }
+]
