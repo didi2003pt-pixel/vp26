@@ -1,0 +1,36 @@
+{
+  "status": "passed_with_environment_limitations",
+  "generated_at": "2026-07-29T18:12:00+01:00",
+  "checks": {
+    "foundation": "passed",
+    "phase2": "33/33 passed",
+    "phase3": "132/132 passed",
+    "typescript_syntax": {
+      "files": 102,
+      "errors": 0
+    },
+    "scoring_source_typecheck": "passed",
+    "sailti_source_typecheck": "passed",
+    "database_services_semantic_check": "passed_with_temporary_prisma_stub",
+    "runtime": {
+      "assertions": 11,
+      "strategicPoints": 290,
+      "perfectPodiumPoints": 250,
+      "csvEntries": 2,
+      "matchingReason": "número de vela"
+    },
+    "json_files": {
+      "count": 28,
+      "valid": true
+    }
+  },
+  "not_executed": [
+    "npm dependency installation",
+    "Prisma client generation",
+    "PostgreSQL migrations",
+    "Next.js production build",
+    "Docker integration",
+    "Playwright end-to-end"
+  ],
+  "reason": "The internal npm registry does not contain @types/node@^24.0.0 and Docker/PostgreSQL are unavailable in this environment."
+}

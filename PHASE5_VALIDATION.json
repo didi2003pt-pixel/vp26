@@ -1,0 +1,105 @@
+{
+  "phase": 5,
+  "version": "0.5.0",
+  "generatedAt": "2026-07-30T01:38:00+01:00",
+  "status": "STRUCTURALLY_VALIDATED_NOT_RELEASE_AUTHORIZED",
+  "staticChecks": {
+    "foundation": {
+      "passed": true
+    },
+    "phase2": {
+      "checks": 33,
+      "passed": 33
+    },
+    "phase3": {
+      "checks": 140,
+      "passed": 140
+    },
+    "phase4": {
+      "checks": 10,
+      "passed": 10
+    },
+    "phase5": {
+      "checks": 31,
+      "passed": 31
+    },
+    "phase5RuntimePureFunctions": {
+      "checks": 7,
+      "passed": 7
+    },
+    "typescriptTranspileSmoke": {
+      "files": 141,
+      "diagnostics": 0,
+      "crashes": 0,
+      "note": "apps/web/next-env.d.ts excluded because it is a generated declaration file"
+    },
+    "prismaSchemaScan": {
+      "models": 54,
+      "enums": 37,
+      "duplicateFields": 0,
+      "newModelsPresent": [
+        "DataSubjectRequest",
+        "SecurityEvent",
+        "RetentionRun",
+        "BackupRun"
+      ],
+      "migrations": 5,
+      "latestMigration": "20260730023000_phase5_operations"
+    },
+    "jsonSyntax": {
+      "files": 37,
+      "errors": 0
+    },
+    "yamlSyntax": {
+      "files": 4,
+      "errors": 0
+    },
+    "shellSyntax": {
+      "files": 4,
+      "errors": 0
+    },
+    "workspaceVersions": {
+      "expected": "0.5.0",
+      "mismatches": 0
+    },
+    "privacySourceScan": {
+      "knownCrewNamesFound": 0,
+      "historicalResultDocumentsIncluded": 0,
+      "crewPersonalDataSeedsIncluded": 0
+    }
+  },
+  "releaseGate": {
+    "releaseReady": false,
+    "expectedBlockers": [
+      "package-lock.json em falta",
+      ".env.production em falta"
+    ],
+    "mandatoryWarnings": [
+      "Aprovação jurídica de termos, privacidade, menores, prémios e retenção",
+      "API ou exportação real Sailti ainda não validada",
+      "Restauro de backup e ensaio de carga ainda não executados"
+    ]
+  },
+  "notExecutedInCurrentEnvironment": [
+    "npm ci / npm install integral",
+    "Prisma Client generation",
+    "prisma migrate deploy against PostgreSQL",
+    "Next.js production build",
+    "ESLint and full TypeScript semantic typecheck with installed dependencies",
+    "Vitest integration suite",
+    "Playwright end-to-end suite",
+    "Docker Compose production validation and container startup",
+    "PostgreSQL backup and restore rehearsal",
+    "Redis integration tests",
+    "k6 load test",
+    "real Sailti API/export import rehearsal"
+  ],
+  "environmentLimitations": {
+    "nodeAvailable": "22.16.0",
+    "nodeRequiredByProject": ">=24.0.0",
+    "dockerAvailable": false,
+    "postgresClientAvailable": false,
+    "npmRegistryResult": "dependency installation unavailable in this environment; public registry access timed out"
+  },
+  "releaseDecision": "Do not deploy. Run docs/PRODUCTION_RUNBOOK.md in staging and require release:gate to pass."
+}

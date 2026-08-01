@@ -1,0 +1,21 @@
+{
+  "phase": 4,
+  "version": "0.4.0",
+  "fileCount": 189,
+  "features": [
+    "missions",
+    "signed QR contract",
+    "photo moderation",
+    "prizes",
+    "in-app/email notifications",
+    "social content drafts",
+    "square/story card contract",
+    "15 percent points guard"
+  ],
+  "productionLimitations": [
+    "npm dependencies not installed in this environment",
+    "Docker/PostgreSQL not executed",
+    "final image renderer requires production object storage and approved fonts",
+    "real email delivery requires provider configuration"
+  ]
+}

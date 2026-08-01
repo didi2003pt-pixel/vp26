@@ -1,0 +1,38 @@
+{
+  "phase": 2,
+  "version": "0.2.0",
+  "generated_at": "2026-07-29T17:42:00+01:00",
+  "audit_version": "1.2.0",
+  "scope": [
+    "stages",
+    "boats",
+    "prediction_markets",
+    "special_questions",
+    "predictions",
+    "profile",
+    "automatic_closure",
+    "mid_competition_launch_guard"
+  ],
+  "counts": {
+    "boats": 30,
+    "stages": 8,
+    "markets_seeded": 16
+  },
+  "feature_flags_default": {
+    "public_game_enabled": false,
+    "predictions_enabled": false,
+    "registrations_enabled": false,
+    "profiles_enabled": true,
+    "preclose_stats_enabled": false
+  },
+  "results_imported": false,
+  "scoring_implemented": false,
+  "crew_personal_data_included": false,
+  "validation": {
+    "static_verifier": "scripts/verify-phase2.mjs",
+    "typescript_syntax_checked": true,
+    "npm_dependencies_installed": false,
+    "database_migration_executed": false,
+    "next_build_executed": false
+  }
+}

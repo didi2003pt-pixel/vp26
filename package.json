@@ -1,0 +1,58 @@
+{
+  "name": "desafio-volta-vela-2026",
+  "version": "0.5.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0",
+    "npm": ">=10.0.0"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "npm --workspace @desafio/web run dev",
+    "build": "npm run db:generate && npm --workspace @desafio/web run build",
+    "start": "npm --workspace @desafio/web run start",
+    "lint": "npm run lint --workspaces --if-present",
+    "typecheck": "npm run typecheck --workspaces --if-present",
+    "test": "npm run test --workspaces --if-present",
+    "db:generate": "npm --workspace @desafio/database run db:generate",
+    "db:migrate": "npm --workspace @desafio/database run db:migrate",
+    "db:deploy": "npm --workspace @desafio/database run db:deploy",
+    "db:seed": "npm --workspace @desafio/database run db:seed",
+    "db:studio": "npm --workspace @desafio/database run db:studio",
+    "infra:up": "docker compose up -d postgres redis minio mailpit",
+    "infra:down": "docker compose down",
+    "verify:foundation": "node scripts/verify-foundation.mjs",
+    "verify:phase2": "node scripts/verify-phase2.mjs",
+    "markets:close": "npm --workspace @desafio/database run markets:close",
+    "verify:phase3": "node scripts/verify-phase3.mjs",
+    "results:recalculate": "npm --workspace @desafio/database run results:recalculate",
+    "test:phase3:runtime": "tsx scripts/runtime-phase3.ts",
+    "verify:phase4": "node scripts/verify-phase4.mjs",
+    "test:phase4:runtime": "tsx scripts/runtime-phase4.ts",
+    "verify:phase5": "node scripts/verify-phase5.mjs",
+    "test:phase5:runtime": "node scripts/runtime-phase5.mjs",
+    "privacy:retention": "npm --workspace @desafio/database run privacy:retention",
+    "privacy:anonymize": "npm --workspace @desafio/database run privacy:anonymize",
+    "backup:db": "bash scripts/backup-postgres.sh",
+    "backup:verify": "bash scripts/verify-postgres-backup.sh",
+    "restore:db": "bash scripts/restore-postgres.sh",
+    "backup:prune": "bash scripts/prune-backups.sh",
+    "test:e2e": "playwright test",
+    "release:gate": "node scripts/release-gate.mjs",
+    "validate:all": "npm run verify:foundation && npm run verify:phase2 && npm run verify:phase3 && npm run verify:phase4 && npm run verify:phase5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^16.0.0",
+    "prettier": "^3.6.0",
+    "tsx": "^4.20.0",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.0",
+    "@playwright/test": "^1.55.0"
+  }
+}

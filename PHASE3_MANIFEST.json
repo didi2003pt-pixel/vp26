@@ -1,0 +1,82 @@
+{
+  "project": "Desafio Volta à Vela 2026",
+  "phase": 3,
+  "phase_name": "Resultados, integração Sailti, pontuação e rankings",
+  "package_version": "0.3.0",
+  "generated_at": "2026-07-29T18:12:00+01:00",
+  "scope": {
+    "completed": [
+      "Modelo de dados versionado para importações, resultados, cálculos, eventos de pontuação, totais e snapshots",
+      "Importação CSV, JSON e XRR/XML",
+      "Fallback manual auditado",
+      "Correspondência por identificador externo, número de vela, número de barco e alias",
+      "Revisão e confirmação administrativa",
+      "Resposta oficial da pergunta especial",
+      "Resultados provisórios, oficiais e substituídos",
+      "Motor puro de pontuação",
+      "Regras fixadas por mercado e versões administrativas",
+      "Bónus de participação nas etapas elegíveis",
+      "Rankings geral, etapa, cidade e clube",
+      "Páginas públicas protegidas por feature flags",
+      "Rotina protegida de recálculo",
+      "Documentação de operação, pontuação e rankings"
+    ],
+    "excluded": [
+      "Resultados reais ou históricos",
+      "Scraping HTML Sailti sem autorização",
+      "Publicação automática em redes sociais",
+      "Missões e prémios da Fase 4"
+    ]
+  },
+  "data_guarantees": {
+    "boats": 30,
+    "anc_boats": 22,
+    "orc_boats": 8,
+    "stages": 8,
+    "real_results_seeded": 0,
+    "private_crew_names_in_project": 0,
+    "result_feature_flags_enabled_by_default": false
+  },
+  "validation": {
+    "foundation_check": "passed",
+    "phase2_check": "33/33 passed",
+    "phase3_structural_check": "132/132 passed",
+    "typescript_syntax_files": 102,
+    "typescript_syntax_check": "passed",
+    "scoring_typecheck": "passed",
+    "sailti_typecheck": "passed with temporary fast-xml-parser declaration",
+    "database_services_semantic_check": "passed with a temporary Prisma test stub",
+    "runtime_assertions": 11,
+    "runtime_scoring_test": "passed",
+    "runtime_csv_and_matching_test": "passed",
+    "json_validation": "28 files passed before validation report creation",
+    "npm_install": "not completed",
+    "prisma_generate": "not executed",
+    "database_migration": "not executed",
+    "next_build": "not executed",
+    "docker_integration": "not executed",
+    "end_to_end": "not executed"
+  },
+  "environment_limitations": [
+    "The available Node.js runtime is v22.16.0 while the project requires Node.js 24 or newer.",
+    "The internal npm registry returned 404 for @types/node@^24.0.0; no package-lock.json was generated.",
+    "Docker is unavailable in the generation environment.",
+    "psql/PostgreSQL is unavailable in the generation environment.",
+    "The Sailti FPV endpoints were not directly retrievable from the audit environment and no public API was confirmed."
+  ],
+  "production_blockers": [
+    "Install with Node.js 24 and generate a committed package-lock.json.",
+    "Run prisma generate and apply migrations to a clean PostgreSQL database.",
+    "Run seed, unit tests, typecheck, lint and Next.js production build.",
+    "Run integration and Playwright tests with PostgreSQL, Redis, MinIO and Mailpit.",
+    "Test an official FPV/Sailti export, especially XRR structure, before the first live stage.",
+    "Obtain formal authorization for any automated Sailti access.",
+    "Approve the public rules, tie handling and community ranking methodology."
+  ],
+  "repository_metrics": {
+    "files": 170,
+    "typescript_and_tsx_files": 103,
+    "sql_migrations": 3,
+    "documentation_files": 14
+  }
+}

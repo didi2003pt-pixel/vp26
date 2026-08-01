@@ -1,0 +1,16 @@
+{
+  "phase": 4,
+  "staticChecks": {
+    "requiredFiles": true,
+    "prismaModels": true,
+    "privacyBoundary": true,
+    "missionPointsLimit": true,
+    "historicalResultsImported": false
+  },
+  "runtimeNotExecuted": [
+    "next build",
+    "prisma migrate",
+    "playwright",
+    "docker compose"
+  ]
+}

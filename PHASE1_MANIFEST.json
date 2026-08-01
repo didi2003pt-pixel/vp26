@@ -1,0 +1,23 @@
+{
+  "phase": "Fase 1 — Fundação",
+  "version": "0.1.0",
+  "generated_at": "2026-07-29T17:25:00+01:00",
+  "file_count": 77,
+  "boats_seeded": 30,
+  "stages_seeded": 8,
+  "results_imported": false,
+  "private_crew_data_included": false,
+  "validation": {
+    "foundation_script": "passed",
+    "typescript_syntax": "passed",
+    "json_yaml_parse": "passed",
+    "dependency_install": "not_run_offline_environment",
+    "docker_runtime": "not_run_docker_unavailable"
+  },
+  "known_blockers": [
+    "IBERO'S certificate missing",
+    "AZUL XL valid 2026 certificate missing",
+    "FAROFINO original PDF certificate missing",
+    "Sailti structured access not confirmed"
+  ]
+}
