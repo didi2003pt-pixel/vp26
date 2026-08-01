@@ -1,0 +1,1 @@
+import { publishedPrizes } from "../../lib/engagement/queries"; export default async function Page(){ const prizes=await publishedPrizes(); return <main><h1>Prémios</h1><div className="grid">{prizes.map(p=><article className="card" key={p.id}><h2>{p.title}</h2><p>{p.description}</p><p>{p.sponsor?.name ?? "Organização"}</p></article>)}</div></main>}

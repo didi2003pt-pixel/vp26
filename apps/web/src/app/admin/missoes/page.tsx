@@ -1,0 +1,1 @@
+export default function Page(){return <main><h1>Gestão de missões</h1><p>Cria missões com validação automática, QR assinado, manual ou moderada. O orçamento total fica limitado a 15% dos pontos desportivos.</p></main>}

@@ -1,0 +1,1 @@
+import { NextResponse } from "next/server"; export async function GET(_:Request,{params}:{params:Promise<{draftId:string}>}){ const {draftId}=await params; return NextResponse.json({draftId,status:"renderer-contract-ready",formats:["square","story"],note:"Ligar a renderer S3/Canvas no ambiente de produção."}); }

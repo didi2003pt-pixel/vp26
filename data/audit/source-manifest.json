@@ -1,0 +1,15 @@
+{
+  "phase": 2,
+  "generated_at": "2026-07-29T17:42:00+01:00",
+  "audit_version": "1.2.0",
+  "boats": 30,
+  "stages": 8,
+  "prediction_markets": 16,
+  "results_imported": false,
+  "private_crew_data_included": false,
+  "aggregated_crew_audit_included": true,
+  "brand_assets": [
+    "volta-portugal-vela-2026.jpg",
+    "percurso-etapas-2026.png"
+  ]
+}

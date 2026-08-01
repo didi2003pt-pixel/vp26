@@ -1,0 +1,12 @@
+﻿id,priority,decision,owner
+D02,blocking,"Obter certificado atual do IBERO'S e confirmar número de vela, grupo e rating.",Organização / Comissão Técnica
+D03,high,Obter PDF original do certificado FAROFINO.,Organização / Equipa FAROFINO
+D04,high,Obter certificado ANC 2026 válido do AZUL XL.,Organização / Equipa AZUL XL
+D05,high,"Corrigir e validar os números operacionais de Allaboard49, Veritas e YEMAYA perante os certificados.",Organização
+D06,medium,"Aprovar os aliases públicos/técnicos de Häcker Kitchen/MADMAX, FUNBEL-NACEX/FUNBEL e PEDE MAR/guronsan/PEDE MAR.",Comunicação + Comissão Técnica
+D07,medium,"Aprovar a tabela definitiva das oito etapas, percursos, tipos de regata e horários.",Direção de prova
+D08,blocking_for_automation,"Disponibilizar acesso autorizado ao Sailti, exportação estruturada ou ficheiro oficial de resultados.",FPV / Sailti
+D09,high,Confirmar se o jogo começa na primeira etapa ainda aberta e definir horários de fecho no fuso Europe/Lisbon.,Organização
+D10,legal,"Definir política para menores, elegibilidade de prémios e autorização parental.",Jurídico / DPO
+D11,high,Corrigir a linha E26 associada ao Mar de Levante e confirmar que o registo correto é E25.,Secretaria da prova
+D12,internal,Resolver os três estados operacionais não completos sem os transportar para o frontend ou para APIs públicas.,Secretaria / Tesouraria
