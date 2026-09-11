@@ -1,0 +1,19 @@
+NOVO WEBSITE FPV — VERSÃO PARA VALIDAÇÃO INTERNA
+
+Principais áreas consolidadas:
+- Homepage / Descobrir
+- Competição
+- Alto Rendimento e Projeto Olímpico LA 2028
+- Atletas e Estrutura Técnica
+- Formação
+- Clubes, diretório e perfil individual
+- Notícias
+- Federação e áreas de governação
+- Centro de Documentação
+- Pesquisa global
+- myFPV
+
+Objetivo desta versão:
+Validar internamente a arquitetura, a organização da informação e a experiência visual antes de enviar o pacote à Binary Brigade para proposta e implementação em WordPress + Divi, num ambiente de staging.
+
+Após a aprovação interna, os destinos definitivos associados ao SAILTI/myFPV deverão ser confirmados na fase técnica.
