@@ -726,6 +726,8 @@ body:not(.home) main{padding-top:0}
 /* Home / Discover additions */
 .competition-gateway-home{display:grid;grid-template-columns:1.15fr .85fr;gap:60px;background:var(--paper);border-radius:var(--radius);padding:46px}.competition-gateway-home h3{font:600 clamp(34px,4vw,56px)/.98 "Space Grotesk";letter-spacing:-.045em;margin:18px 0}.competition-gateway-home p{color:var(--muted);line-height:1.75;max-width:620px}.competition-home-links{border-top:1px solid var(--line)}.competition-home-links a{display:grid;grid-template-columns:35px 1fr auto;gap:15px;padding:20px 0;border-bottom:1px solid var(--line);align-items:center}.competition-home-links span{font-size:10px;color:var(--ocean);font-weight:800}.competition-home-links i{font-style:normal;color:var(--ocean)}
 .discover-network-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.discover-network-grid>a{min-height:220px;padding:28px;border-radius:18px;background:var(--paper);display:flex;flex-direction:column}.discover-network-grid span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ocean);font-weight:800}.discover-network-grid strong{font:600 30px "Space Grotesk";margin:auto 0 10px}.discover-network-grid i{align-self:flex-end;font-style:normal;color:var(--ocean);font-size:20px}
+.sailing-paths{background:#fff}.sailing-paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.sailing-path-card{min-height:260px;padding:28px;border:1px solid var(--line);border-radius:18px;background:#fff;display:flex;flex-direction:column;transition:transform .3s,box-shadow .3s}.sailing-path-card:hover{transform:translateY(-4px);box-shadow:var(--shadow)}.sailing-path-index{font-size:10px;color:var(--ocean);font-weight:800}.sailing-path-card h3{font:600 30px/1 "Space Grotesk";letter-spacing:-.04em;margin:42px 0 12px}.sailing-path-card p{color:var(--muted);font-size:12px;line-height:1.75;margin:0 0 22px}.sailing-path-examples{display:flex;flex-wrap:wrap;gap:7px;margin-top:auto}.sailing-path-examples span{display:inline-flex;align-items:center;min-height:30px;padding:6px 10px;border-radius:999px;background:var(--paper);font-size:10px;font-weight:800;color:var(--ink)}
+
 
 /* Footer social links */
 .footer-social a{width:34px;height:34px;border:1px solid rgba(255,255,255,.18);border-radius:50%;display:inline-grid;place-items:center;font-size:9px;font-weight:800}
@@ -734,7 +736,7 @@ body:not(.home) main{padding-top:0}
 @media (max-width:1080px){
  .gateway-layout,.contact-panel,.course-detail-layout,.olympic-feature,.article-layout{grid-template-columns:1fr;gap:50px}
  .gateway-services{max-width:none}.institution-grid{grid-template-columns:1fr 1fr}.quick-link-matrix{grid-template-columns:repeat(2,1fr)}
- .training-pillars,.course-preview-grid,.cycle-grid,.governance-grid,.topic-columns{grid-template-columns:1fr 1fr}
+ .training-pillars,.course-preview-grid,.cycle-grid,.governance-grid,.topic-columns{grid-template-columns:1fr 1fr}.sailing-paths-grid{grid-template-columns:repeat(2,1fr)}
  .institutional-layout{grid-template-columns:220px 1fr;gap:45px}
  .olympic-symbol{width:min(360px,70vw)}
 }
@@ -742,7 +744,7 @@ body:not(.home) main{padding-top:0}
  .page-hero{min-height:500px;padding:150px 0 70px}.page-hero h1{font-size:clamp(50px,15vw,74px)}
  .doc-toolbar{top:72px}.doc-filters{grid-template-columns:1fr 1fr}.doc-reset{grid-column:1/-1}
  .doc-results-meta{align-items:flex-start;flex-direction:column}.document-row{grid-template-columns:1fr auto;gap:12px;background:var(--paper);border:0;border-radius:14px;padding:18px;margin-bottom:10px}.document-year{grid-column:2;grid-row:1}.document-action{grid-column:1/-1;justify-content:space-between;background:#fff}.document-list{border:0}
- .institution-grid,.training-pillars,.course-preview-grid,.cycle-grid,.governance-grid,.topic-columns,.discover-network-grid{grid-template-columns:1fr}
+ .institution-grid,.training-pillars,.course-preview-grid,.cycle-grid,.governance-grid,.topic-columns,.discover-network-grid{grid-template-columns:1fr}.sailing-paths-grid{grid-template-columns:1fr}.sailing-path-card{min-height:220px}.sailing-path-card h3{margin-top:30px}
  .institution-card{min-height:350px}.quick-link-matrix{grid-template-columns:1fr}.quick-link-matrix a{min-height:95px}
  .contact-panel .contact-grid{grid-template-columns:1fr}
  .institutional-layout{grid-template-columns:1fr}.institutional-side{position:static}.institutional-content>section{padding-bottom:50px;margin-bottom:50px}.inline-cards{grid-template-columns:1fr}
