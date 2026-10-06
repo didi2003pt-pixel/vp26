@@ -810,7 +810,7 @@ body:not(.home) main{padding-top:0}
 
 
 /* Imported content components — previous FPV prototype, adapted to current visual system */
-/\* Regional association structure \*/
+/* Regional association structure */
 .regional-associations{margin:28px 0 38px}
 .regional-associations-heading{display:grid;grid-template-columns:1fr minmax(280px,.72fr);gap:14px 48px;align-items:end;margin-bottom:18px}
 .regional-associations-heading .eyebrow{grid-column:1/-1}
@@ -852,7 +852,7 @@ a.regional-association-card:hover .regional-code,a.regional-association-card:hov
 .regional-association-grid{grid-template-columns:1fr}
 .regional-association-card{min-height:108px}
 }
-/\* Club directory spacing pass — keep the first association close to the hero \*/
+/* Club directory spacing pass — keep the first association close to the hero */
 .real-clubs-page{padding-top:28px!important;padding-bottom:88px}
 .regional-associations{margin:0 0 22px!important}
 .regional-associations-heading{grid-template-columns:1fr auto!important;gap:8px 28px!important;margin-bottom:12px!important}
