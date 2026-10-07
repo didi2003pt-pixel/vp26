@@ -80,8 +80,9 @@
   const hideEmpty=(wrap,val)=>{const el=document.querySelector(wrap);if(el)el.hidden=!val;};
 
   const renderClub=c=>{
-    document.title=c.club+' — Clubes FPV';
-    set('[data-club-name]',c.club);
+    const displayName=c.official_name||c.club;
+    document.title=displayName+' — Clubes FPV';
+    set('[data-club-name]',displayName);
     set('[data-club-region]',c.region);
 
     const logoWrap=document.querySelector('[data-club-logo-wrap]');
@@ -91,7 +92,7 @@
       logoWrap.hidden=!showPilotLogo;
       if(showPilotLogo){
         logo.src=c.logo_url;
-        logo.alt='Logótipo — '+c.club;
+        logo.alt='Logótipo — '+displayName;
       }else{
         logo.removeAttribute('src');
         logo.alt='';
@@ -121,7 +122,7 @@
     hideEmpty('[data-club-disciplines-wrap]',disciplines.length);
 
     const maps=document.querySelector('[data-club-maps]');
-    if(maps) maps.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(c.geocode_query||[c.club,c.address,'Portugal'].filter(Boolean).join(', '));
+    if(maps) maps.href='https://www.google.com/maps/dir/?api=1&destination='+encodeURIComponent(c.geocode_query||[displayName,c.address,'Portugal'].filter(Boolean).join(', '));
   };
 
   const renderNotFound=()=>{
