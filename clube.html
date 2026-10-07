@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html lang="pt-PT"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="Perfil de clube da Federação Portuguesa de Vela." name="description"/><title>Clube FPV — Federação Portuguesa de Vela</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="css/style.css?v=20261006-1" rel="stylesheet"/></head><body class="club-detail-body"><header class="site-header" id="top">
+<html lang="pt-PT"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><meta content="Perfil de clube da Federação Portuguesa de Vela." name="description"/><title>Clube FPV — Federação Portuguesa de Vela</title><link href="https://fonts.googleapis.com" rel="preconnect"/><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/><link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Space+Grotesk:wght@500;600;700&amp;display=swap" rel="stylesheet"/><link href="css/style.css?v=20261007-2" rel="stylesheet"/></head><body class="club-detail-body"><header class="site-header" id="top">
 <div class="container nav-shell">
 <a aria-label="Federação Portuguesa de Vela — Início" class="brand" href="index.html">
 <span class="brand-mark brand-mark-official"><img alt="" src="assets/fpv-emblema-transparente.png"/></span>
@@ -42,6 +42,9 @@
 <div class="container club-detail-hero-inner">
 <a class="profile-back" href="clubes.html">← Voltar aos clubes</a>
 <span class="eyebrow eyebrow-light">Clube FPV</span>
+<div class="club-detail-logo" data-club-logo-wrap="" hidden="">
+<img alt="" data-club-logo="" decoding="async"/>
+</div>
 <h1 data-club-name="">Clube</h1>
 <div class="club-detail-tags"><span class="tag tag-dark" data-club-region="">Região</span><span class="tag tag-dark" data-club-school="" hidden="">Escola certificada</span></div>
 </div>
@@ -80,6 +83,20 @@
     document.title=c.club+' — Clubes FPV';
     set('[data-club-name]',c.club);
     set('[data-club-region]',c.region);
+
+    const logoWrap=document.querySelector('[data-club-logo-wrap]');
+    const logo=document.querySelector('[data-club-logo]');
+    const showPilotLogo=c.id==='clube-de-vela-costa-nova' && Boolean(c.logo_url);
+    if(logoWrap&&logo){
+      logoWrap.hidden=!showPilotLogo;
+      if(showPilotLogo){
+        logo.src=c.logo_url;
+        logo.alt='Logótipo — '+c.club;
+      }else{
+        logo.removeAttribute('src');
+        logo.alt='';
+      }
+    }
 
     const school=document.querySelector('[data-club-school]');
     if(school) school.hidden=c.school_certified!=='Sim';
