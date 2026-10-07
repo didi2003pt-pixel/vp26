@@ -6,10 +6,27 @@
   const menuBtn = document.querySelector('[data-menu-toggle]');
   const mobileMenu = document.querySelector('[data-mobile-menu]');
   if (menuBtn && mobileMenu) {
-    menuBtn.addEventListener('click', () => {
-      const open = mobileMenu.classList.toggle('active');
+    if (!mobileMenu.id) mobileMenu.id = 'mobile-menu';
+    menuBtn.setAttribute('aria-controls', mobileMenu.id);
+    mobileMenu.setAttribute('aria-hidden', 'true');
+
+    const setMenuState = open => {
+      mobileMenu.classList.toggle('active', open);
       body.classList.toggle('menu-open', open);
       menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Fechar menu' : 'Abrir menu');
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+    };
+
+    menuBtn.addEventListener('click', () => {
+      setMenuState(!mobileMenu.classList.contains('active'));
+    });
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape' && mobileMenu.classList.contains('active')) {
+        setMenuState(false);
+        menuBtn.focus();
+      }
     });
   }
 
