@@ -32,26 +32,52 @@
 
   // Search palette
   const overlay = document.querySelector('[data-search-overlay]');
+  const searchDialog = overlay?.querySelector('[role="dialog"]');
   const searchInput = document.querySelector('[data-search-input]');
   const searchResult = document.querySelector('[data-search-result]');
   const searchResultTitle = document.querySelector('[data-search-result-title]');
+  const searchOpeners = [...document.querySelectorAll('[data-open-search]')];
+  let searchReturnFocus = null;
+
+  if (searchDialog && !searchDialog.id) searchDialog.id = 'global-search-dialog';
+  searchOpeners.forEach(el => {
+    if (searchDialog) el.setAttribute('aria-controls', searchDialog.id);
+    el.setAttribute('aria-expanded', 'false');
+  });
+
   const openSearch = () => {
     if (!overlay) return;
+    searchReturnFocus = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     overlay.classList.add('active');
     overlay.setAttribute('aria-hidden', 'false');
+    searchOpeners.forEach(el => el.setAttribute('aria-expanded', 'true'));
     body.classList.add('search-open');
     setTimeout(() => searchInput?.focus(), 30);
   };
   const closeSearch = () => {
-    overlay?.classList.remove('active');
-    overlay?.setAttribute('aria-hidden', 'true');
+    if (!overlay?.classList.contains('active')) return;
+    overlay.classList.remove('active');
+    overlay.setAttribute('aria-hidden', 'true');
+    searchOpeners.forEach(el => el.setAttribute('aria-expanded', 'false'));
     body.classList.remove('search-open');
+    searchReturnFocus?.focus();
+    searchReturnFocus = null;
   };
-  document.querySelectorAll('[data-open-search]').forEach(el => el.addEventListener('click', openSearch));
+  searchOpeners.forEach(el => el.addEventListener('click', openSearch));
   document.querySelectorAll('[data-close-search]').forEach(el => el.addEventListener('click', closeSearch));
   document.addEventListener('keydown', e => {
-    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); }
-    if (e.key === 'Escape') closeSearch();
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') { e.preventDefault(); openSearch(); return; }
+    if (!overlay?.classList.contains('active')) return;
+    if (e.key === 'Escape') { e.preventDefault(); closeSearch(); return; }
+    if (e.key === 'Tab' && searchDialog) {
+      const focusable = [...searchDialog.querySelectorAll('a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),[tabindex]:not([tabindex="-1"])')]
+        .filter(el => !el.hidden && el.getAttribute('aria-hidden') !== 'true');
+      if (!focusable.length) return;
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
   });
   const showDemoResult = value => {
     if (!searchResult || !searchResultTitle) return;
