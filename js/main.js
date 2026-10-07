@@ -229,7 +229,11 @@
   if(courseButtons.length){
     const wanted=new URLSearchParams(location.search).get('tipo')||'all';
     const apply=(kind)=>{
-      courseButtons.forEach(b=>b.classList.toggle('active',b.dataset.courseFilter===kind));
+      courseButtons.forEach(b=>{
+        const active=b.dataset.courseFilter===kind;
+        b.classList.toggle('active',active);
+        b.setAttribute('aria-pressed',String(active));
+      });
       courseRows.forEach(r=>r.hidden=kind!=='all' && r.dataset.courseKind!==kind);
     };
     courseButtons.forEach(b=>b.addEventListener('click',()=>apply(b.dataset.courseFilter)));
