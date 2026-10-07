@@ -87,10 +87,11 @@
 
     const logoWrap=document.querySelector('[data-club-logo-wrap]');
     const logo=document.querySelector('[data-club-logo]');
-    const showPilotLogo=c.id==='clube-de-vela-costa-nova' && Boolean(c.logo_url);
+    const showLogo=Boolean(c.logo_url);
     if(logoWrap&&logo){
-      logoWrap.hidden=!showPilotLogo;
-      if(showPilotLogo){
+      logoWrap.hidden=!showLogo;
+      logo.onerror=()=>{logoWrap.hidden=true;logo.removeAttribute('src');};
+      if(showLogo){
         logo.src=c.logo_url;
         logo.alt='Logótipo — '+displayName;
       }else{
