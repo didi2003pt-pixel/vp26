@@ -923,5 +923,16 @@ a.regional-association-card:hover .regional-code,a.regional-association-card:hov
 .legal-page{padding-top:48px}.legal-layout{grid-template-columns:1fr;gap:34px}.legal-nav{position:static;display:grid;grid-template-columns:1fr 1fr;gap:0}.legal-data{grid-template-columns:1fr}.legal-section h2{font-size:29px}
 }
 
+/* Global keyboard focus — visible on light and dark surfaces */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible{
+  outline:3px solid var(--ocean);
+  outline-offset:3px;
+}
+
 /* Footer social squares */
 .site-footer .footer-social a{width:36px;height:36px;min-width:36px;min-height:36px;border:0;border-radius:4px;background:#24d4e5;color:#073458;display:grid;place-items:center;transition:transform .2s ease,filter .2s ease}.site-footer .footer-social a:hover{transform:translateY(-2px);filter:brightness(1.05)}.site-footer .footer-social a:focus-visible{outline:3px solid #fff;outline-offset:3px}.site-footer .footer-social svg{width:17px;height:17px;fill:none;stroke:currentColor;stroke-width:1.8}.demo-action{display:inline-flex;margin-top:auto;font-size:11px;font-weight:800;color:var(--muted)}
