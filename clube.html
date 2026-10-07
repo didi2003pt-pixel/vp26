@@ -135,7 +135,7 @@
 
   if(!id){renderNotFound();return;}
 
-  fetch('assets/clubes-fpv.json?v=20261007-1',{cache:'no-store'})
+  fetch('assets/clubes-fpv.json?v=20261007-3',{cache:'no-store'})
     .then(response=>{
       if(!response.ok) throw new Error('Não foi possível carregar o diretório de clubes.');
       return response.json();
