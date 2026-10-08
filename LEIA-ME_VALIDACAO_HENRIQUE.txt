@@ -1,4 +1,4 @@
-NOVO WEBSITE FPV — VERSÃO PARA VALIDAÇÃO INTERNA
+NOVO WEBSITE FPV — RELEASE CANDIDATE PARA ENTREGA TÉCNICA
 
 Principais áreas consolidadas:
 - Homepage / Descobrir
@@ -6,14 +6,24 @@ Principais áreas consolidadas:
 - Alto Rendimento e Projeto Olímpico LA 2028
 - Atletas e Estrutura Técnica
 - Formação
-- Clubes, diretório e perfil individual
+- Clubes, diretório oficial com 87 entidades e perfil individual
 - Notícias
 - Federação e áreas de governação
-- Centro de Documentação
+- Centro de Documentação com 24 ligações diretas oficiais
 - Pesquisa global
 - myFPV
 
-Objetivo desta versão:
-Validar internamente a arquitetura, a organização da informação e a experiência visual antes de enviar o pacote à Binary Brigade para proposta e implementação em WordPress + Divi, num ambiente de staging.
+Destinos operacionais já definidos:
+- Calendário competitivo:
+  https://fpv.bogolab.es/pt/calendario?ini=1
+- Submissão de resultados nacionais/internacionais:
+  https://script.google.com/macros/s/AKfycbwV304-vXzeNyvjPEyjG2idxhW4JRzzQYnXn02P8iynjk_7PaXWkVfHl2R9NAeIRBcfXw/exec
+- myFPV:
+  https://backoffice.fpvela.pt/
 
-Após a aprovação interna, os destinos definitivos associados ao SAILTI/myFPV deverão ser confirmados na fase técnica.
+Objetivo desta versão:
+Entregar à empresa responsável pela implementação/alojamento uma referência consolidada de arquitetura, design, conteúdo e comportamento.
+
+Esta versão deve ser implementada primeiro em staging. Antes de produção são obrigatórios QA final, redirects, SEO técnico, validação de acessibilidade, testes multi-browser/dispositivo, backup e plano de rollback.
+
+NÃO publicar diretamente estes ficheiros estáticos como substituição imediata do website oficial sem a fase de staging e validação final da FPV.

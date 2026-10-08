@@ -1,18 +1,29 @@
-# Checklist de implementação futura em Divi
+# Checklist de implementação futura em staging / CMS
 
 - [ ] Criar staging/clone isolado de produção.
-- [ ] Confirmar versões WordPress, PHP, Divi e plugins críticos.
-- [ ] Inventariar Custom Post Types e taxonomias atuais.
-- [ ] Mapear a base documental existente para o novo template.
-- [ ] Definir CPT de Atletas e respetivos campos.
-- [ ] Definir CPT de Clubes e respetivos campos.
-- [ ] Definir estrutura Formação / Cursos.
-- [ ] Implementar templates de arquivo e detalhe.
-- [ ] Implementar módulos Divi reutilizáveis.
-- [ ] Configurar destinos finais da plataforma operacional e myFPV.
-- [ ] Testar migração de conteúdo sem duplicação.
-- [ ] Testar desktop, tablet e mobile.
+- [ ] Confirmar stack final, versões, PHP/CMS e plugins críticos quando aplicável.
+- [ ] Inventariar conteúdos e URLs do website atual.
+- [ ] Mapear redirects 301 das URLs antigas para a nova arquitetura.
+- [ ] Preservar a base documental única e respetivos filtros.
+- [ ] Implementar estrutura reutilizável de Atletas e perfis.
+- [ ] Implementar estrutura reutilizável de Clubes e perfis.
+- [ ] Importar/ligar as 87 entidades oficiais do diretório de clubes.
+- [ ] Implementar Formação / Cursos e respetivos filtros.
+- [ ] Implementar módulos/componentes reutilizáveis.
+- [x] Destino do calendário competitivo definido: https://fpv.bogolab.es/pt/calendario?ini=1
+- [x] Destino para submissão de resultados definido: Google Apps Script FPV.
+- [x] Destino myFPV definido: https://backoffice.fpvela.pt/
+- [ ] Confirmar no staging que estes serviços externos abrem corretamente.
+- [ ] Validar todos os 24 documentos e downloads no domínio final.
+- [ ] Implementar sitemap.xml, robots.txt e canonical URLs.
+- [ ] Rever titles e meta descriptions finais.
+- [ ] Definir política de analytics/cookies conforme ferramentas realmente instaladas.
+- [ ] Testar desktop, tablet e mobile em dispositivos físicos.
+- [ ] Testar Chrome, Safari, Firefox e Edge.
 - [ ] Validar acessibilidade e navegação por teclado.
+- [ ] Validar contraste, foco, headings, labels e modais.
 - [ ] Validar direitos de utilização das fotografias.
-- [ ] Fazer backup e plano de rollback antes de produção.
-- [ ] Validar com a FPV antes do deploy.
+- [ ] Rever assets externos e alojar localmente os críticos quando possível.
+- [ ] Fazer backup e preparar plano de rollback.
+- [ ] Validar staging com a FPV antes do deploy.
+- [ ] Publicar apenas após aprovação final.

@@ -1,29 +1,45 @@
-# Relatório QA — Versão para validação Henrique
+# Relatório QA — Release Candidate FPV
 
-## Verificações automáticas
-- Páginas/entradas HTML: 24
-- Links internos para ficheiros inexistentes: 0
-- Âncoras internas inválidas: 0
-- Assets locais em falta: 0
-- Referências de imagem CSS em falta: 0
-- Expressões internas/de desenvolvimento visíveis verificadas: 0
-- Filtros contextuais de Documentação sem resultados: 0
-- Links de perfis de clubes sem correspondência: 0
-- Perfis de clubes ligados a partir do diretório: 43
+## Verificações e correções já realizadas
 
-## Alterações finais desta versão
-- Criado template reutilizável de detalhe de Clube.
-- Todos os 43 cartões de clubes ligam ao respetivo perfil.
-- Removidas indicações internas de validação de dados do frontend.
-- Corrigidas referências antigas à área de Documentação.
-- Uniformizada a pesquisa global nas páginas.
-- Removidos conteúdos demonstrativos/internos visíveis.
-- Reforçada a amostra documental com referências institucionais confirmadas para Projeto Olímpico, Assembleia Geral e Conselho de Arbitragem.
-- Revistos os atalhos contextuais para não abrirem estados vazios indevidos.
-- Validada sintaxe JavaScript do ficheiro principal e do template de clube.
+- Entradas HTML no protótipo: 26.
+- Diretório oficial de clubes: 87 entidades.
+- Perfis de clube: gerados a partir da mesma base de dados do diretório.
+- Documentação: 24 entradas com ligação direta para ficheiros oficiais da FPV.
+- Notícias: removido o conteúdo demonstrativo visível e revistos os destinos principais.
+- Formação: filtros corrigidos e estados acessíveis sincronizados.
+- Menu móvel: aria-expanded, aria-controls, aria-hidden e fecho por Escape.
+- Pesquisa global: gestão de foco, Escape e devolução de foco ao elemento de origem.
+- Foco de teclado: estado :focus-visible global.
+- Headings da homepage: corrigida hierarquia e HTML inválido.
+- Clubes: contador inicial corrigido para 87 e filtros com feedback acessível.
+- Competição: calendário e submissão de resultados ligados aos destinos operacionais definidos.
+- myFPV: gateway modernizado e simplificado para um único CTA principal.
+
+## Destinos operacionais confirmados
+
+- Calendário competitivo:
+  https://fpv.bogolab.es/pt/calendario?ini=1
+- Submissão de participação/resultado nacional ou internacional:
+  https://script.google.com/macros/s/AKfycbwV304-vXzeNyvjPEyjG2idxhW4JRzzQYnXn02P8iynjk_7PaXWkVfHl2R9NAeIRBcfXw/exec
+- Área reservada myFPV:
+  https://backoffice.fpvela.pt/
+
+## Pontos ainda obrigatórios em staging/produção
+
+- testar todos os layouts em desktop, tablet e mobile físicos;
+- validar Chrome, Safari, Firefox e Edge;
+- validar todos os links externos e downloads no domínio final;
+- preparar redirects 301;
+- gerar sitemap e robots.txt;
+- definir canonical URLs;
+- rever title/description finais por página;
+- validar analytics/cookies caso sejam adicionados;
+- confirmar direitos de uso das fotografias;
+- reduzir dependências remotas críticas, incluindo fontes/logótipos, quando viável;
+- executar auditoria final de acessibilidade no ambiente publicado;
+- validar backup e rollback.
 
 ## Resultado
-A versão está preparada para validação interna pela FPV. Após aprovação, pode seguir para a Binary Brigade como referência de arquitetura, design e comportamento, acompanhada pelos documentos técnicos WordPress/Divi.
 
-## Nota
-A implementação final deverá ser novamente validada no ambiente de staging WordPress/Divi e testada em dispositivos físicos antes da publicação em produção.
+A versão está apta para entrega técnica à empresa responsável pela implementação/alojamento como Release Candidate e referência funcional. A publicação em produção deve ocorrer apenas depois da integração em staging e da validação final da FPV.
