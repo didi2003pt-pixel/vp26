@@ -728,6 +728,157 @@ body:not(.home) main{padding-top:0}
 /* myFPV */
 .myfpv-gateway{min-height:100dvh;position:relative;display:flex;align-items:center;background:var(--navy);color:#fff;padding:140px 0 80px;overflow:hidden}.myfpv-gateway-media{position:absolute;inset:0;background:url("../assets/alto-rendimento-portugal.png") center/cover}.myfpv-gateway-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(4,20,37,.96),rgba(4,20,37,.62) 65%,rgba(4,20,37,.32))}.myfpv-gateway-content{position:relative;z-index:1}.myfpv-gateway h1{font:600 clamp(86px,14vw,180px)/.78 "Space Grotesk";letter-spacing:-.08em;margin:25px 0}.myfpv-gateway-content>p{max-width:600px;font-size:18px;line-height:1.7;color:#ccdae4}.gateway-security{margin-top:50px;max-width:600px;padding-top:20px;border-top:1px solid rgba(255,255,255,.2);display:flex;gap:15px;color:#a8bdcb;font-size:12px;line-height:1.6}
 
+/* myFPV gateway v2 — responsive access landing */
+.myfpv-gateway-body .site-footer{margin-top:0}
+.myfpv-main-v2{background:#fff}
+.myfpv-gateway-v2{
+  min-height:clamp(720px,92svh,900px);
+  padding:150px 0 88px;
+  align-items:stretch;
+  isolation:isolate;
+}
+.myfpv-gateway-v2 .myfpv-gateway-media{
+  background-image:url("../assets/alto-rendimento-portugal.png");
+  background-position:center 34%;
+  background-size:cover;
+  transform:scale(1.025);
+}
+.myfpv-gateway-v2 .myfpv-gateway-media:after{
+  content:"";position:absolute;inset:0;
+  background:
+    radial-gradient(circle at 78% 25%,rgba(88,192,235,.16),transparent 28%),
+    linear-gradient(180deg,rgba(4,20,37,.04),rgba(4,20,37,.28));
+}
+.myfpv-gateway-v2 .myfpv-gateway-overlay{
+  background:
+    linear-gradient(90deg,rgba(4,20,37,.98) 0%,rgba(4,20,37,.86) 43%,rgba(4,20,37,.38) 72%,rgba(4,20,37,.2) 100%),
+    linear-gradient(0deg,rgba(4,20,37,.74),transparent 50%);
+}
+.myfpv-gateway-grid{
+  position:relative;z-index:2;
+  width:100%;
+  display:grid;
+  grid-template-columns:minmax(0,1.05fr) minmax(360px,.72fr);
+  gap:clamp(52px,7vw,110px);
+  align-items:center;
+}
+.myfpv-gateway-copy{max-width:760px}
+.myfpv-live-label{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  color:#d5e5ee;
+}
+.myfpv-live-label>span{
+  width:8px;height:8px;border-radius:50%;background:#52d7e8;
+  box-shadow:0 0 0 6px rgba(82,215,232,.1);
+}
+.myfpv-gateway-v2 h1{
+  font:700 clamp(92px,13vw,176px)/.74 "Space Grotesk";
+  letter-spacing:-.085em;
+  margin:30px 0 34px;
+  white-space:nowrap;
+}
+.myfpv-gateway-v2 h1 span{color:#fff}
+.myfpv-gateway-v2 h1 em{font-style:normal;font-weight:500;color:#66c8ef}
+.myfpv-gateway-copy>p{
+  max-width:610px;
+  margin:0;
+  color:#d2e1e9;
+  font-size:clamp(16px,1.45vw,19px);
+  line-height:1.75;
+}
+.myfpv-gateway-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-top:34px}
+.myfpv-help-link{
+  display:inline-flex;align-items:center;gap:14px;
+  min-height:48px;
+  border-bottom:1px solid rgba(255,255,255,.35);
+  font-size:12px;font-weight:800;color:#fff;
+}
+.myfpv-help-link span{color:#7ed6f4;transition:transform .2s ease}
+.myfpv-help-link:hover span{transform:translateX(4px)}
+.myfpv-gateway-trust{
+  display:flex;gap:22px;flex-wrap:wrap;
+  margin-top:38px;padding-top:22px;
+  border-top:1px solid rgba(255,255,255,.16);
+  color:#9eb7c6;font-size:10px;text-transform:uppercase;letter-spacing:.08em;
+}
+.myfpv-gateway-trust span{display:flex;align-items:center;gap:8px}
+.myfpv-gateway-trust span:before{content:"";width:4px;height:4px;border-radius:50%;background:#60c9ef}
+
+.myfpv-access-card{
+  align-self:center;
+  padding:34px;
+  border:1px solid rgba(255,255,255,.18);
+  border-radius:26px;
+  background:linear-gradient(145deg,rgba(255,255,255,.13),rgba(255,255,255,.055));
+  box-shadow:0 34px 90px rgba(0,0,0,.28);
+  backdrop-filter:blur(20px);
+  -webkit-backdrop-filter:blur(20px);
+}
+.myfpv-access-top{display:flex;justify-content:space-between;align-items:center;gap:18px;padding-bottom:24px;border-bottom:1px solid rgba(255,255,255,.14)}
+.myfpv-access-kicker{font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.13em;color:#7ed6f4}
+.myfpv-access-domain{font-size:9px;color:#9eb7c6}
+.myfpv-access-card h2{
+  font:600 clamp(32px,3vw,44px)/.98 "Space Grotesk";
+  letter-spacing:-.045em;
+  margin:30px 0 16px;
+}
+.myfpv-access-card>p{margin:0;color:#bdcfda;font-size:13px;line-height:1.75}
+.myfpv-access-button{
+  margin-top:30px;min-height:58px;padding:0 18px 0 20px;
+  border-radius:15px;background:#fff;color:var(--navy);
+  display:flex;align-items:center;justify-content:space-between;gap:20px;
+  font-size:12px;font-weight:800;
+  box-shadow:0 16px 44px rgba(0,0,0,.18);
+  transition:transform .2s ease,box-shadow .2s ease;
+}
+.myfpv-access-button i{font-style:normal;font-size:18px;color:var(--ocean);transition:transform .2s ease}
+.myfpv-access-button:hover{transform:translateY(-2px);box-shadow:0 22px 52px rgba(0,0,0,.24)}
+.myfpv-access-button:hover i{transform:translate(3px,-3px)}
+.myfpv-access-facts{display:grid;margin-top:26px;border-top:1px solid rgba(255,255,255,.14)}
+.myfpv-access-facts>div{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:17px 0;border-bottom:1px solid rgba(255,255,255,.1)}
+.myfpv-access-facts>div>span{font:700 10px "Space Grotesk";color:#65c8ef}
+.myfpv-access-facts p{margin:0;color:#9eb5c3;font-size:10px;line-height:1.55}
+.myfpv-access-facts strong{display:block;color:#fff;font-size:11px;margin-bottom:3px}
+
+.myfpv-info-band{padding:88px 0;background:#f5f8fa}
+.myfpv-info-grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:100px;align-items:end}
+.myfpv-info-grid h2{font:600 clamp(44px,5vw,68px)/.94 "Space Grotesk";letter-spacing:-.055em;margin:14px 0 0}
+.myfpv-info-grid h2 em{font-style:normal;color:var(--ocean);font-weight:500}
+.myfpv-info-copy{max-width:620px}
+.myfpv-info-copy p{margin:0 0 28px;color:var(--muted);font-size:15px;line-height:1.8}
+
+@media(max-width:980px){
+  .myfpv-gateway-v2{min-height:auto;padding:138px 0 74px}
+  .myfpv-gateway-grid{grid-template-columns:1fr;gap:44px}
+  .myfpv-gateway-copy{max-width:760px}
+  .myfpv-access-card{max-width:660px}
+  .myfpv-info-grid{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:600px){
+  .myfpv-gateway-v2{padding:112px 0 48px}
+  .myfpv-gateway-v2 .myfpv-gateway-media{background-position:61% center}
+  .myfpv-gateway-v2 .myfpv-gateway-overlay{
+    background:
+      linear-gradient(180deg,rgba(4,20,37,.72) 0%,rgba(4,20,37,.92) 44%,rgba(4,20,37,.99) 100%),
+      linear-gradient(90deg,rgba(4,20,37,.45),rgba(4,20,37,.12));
+  }
+  .myfpv-gateway-grid{gap:34px}
+  .myfpv-live-label{font-size:9px}
+  .myfpv-gateway-v2 h1{font-size:clamp(72px,23vw,104px);margin:24px 0 28px;white-space:normal}
+  .myfpv-gateway-copy>p{font-size:15px;line-height:1.7}
+  .myfpv-gateway-actions{align-items:stretch;flex-direction:column;gap:12px;margin-top:28px}
+  .myfpv-gateway-actions .btn,.myfpv-help-link{width:100%;justify-content:center}
+  .myfpv-gateway-trust{gap:12px;flex-direction:column;margin-top:28px}
+  .myfpv-access-card{padding:24px 20px;border-radius:20px}
+  .myfpv-access-top{align-items:flex-start;flex-direction:column;gap:6px;padding-bottom:18px}
+  .myfpv-access-card h2{font-size:34px;margin-top:24px}
+  .myfpv-access-button{min-height:56px}
+  .myfpv-info-band{padding:62px 0}
+  .myfpv-info-grid{gap:24px}
+  .myfpv-info-grid h2{font-size:44px}
+}
+
 /* Article + search */
 .article-hero{background:var(--navy);color:#fff;padding:190px 0 90px}.article-hero h1{font:600 clamp(52px,7vw,96px)/.92 "Space Grotesk";letter-spacing:-.055em;max-width:1050px;margin:18px 0 24px}.article-tags{display:flex;gap:8px;flex-wrap:wrap}.article-tags a{border:1px solid rgba(255,255,255,.25);border-radius:999px;padding:8px 12px;font-size:10px;font-weight:800}.article-layout{display:grid;grid-template-columns:minmax(0,760px) 300px;gap:90px}.article-body{font-size:17px;line-height:1.9}.article-lead{font:500 28px/1.45 "Space Grotesk";letter-spacing:-.025em}.article-related{border-top:1px solid var(--ink);display:grid;align-self:start}.article-related>.eyebrow{padding:18px 0}.article-related a{display:flex;justify-content:space-between;padding:17px 0;border-top:1px solid var(--line);font-size:13px}
 .search-page-form{display:grid;grid-template-columns:1fr auto;gap:12px;max-width:900px}.search-page-form input{width:100%;height:58px;border:1px solid var(--line);border-radius:12px;padding:0 18px;font-size:17px}.search-page-meta{padding:30px 0 14px;border-bottom:1px solid var(--ink)}.global-search-results{display:grid}.global-result{display:grid;grid-template-columns:150px 1fr auto;gap:24px;align-items:center;padding:22px 0;border-bottom:1px solid var(--line)}.global-result>span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--ocean);font-weight:800}.global-result strong{font-size:15px}.global-result small{display:block;color:var(--muted);margin-top:4px}.global-result>a{font-size:11px;font-weight:800}
